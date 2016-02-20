@@ -9,6 +9,7 @@
 	<div class="timer">
 	<form>
 		<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
+		<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
 		<button type="button" onclick="countDownFunc()">Start</button>
 		<button type="button" onclick="stopNumFunc()">Stop</button>
 		<button type="button" onclick="resetFunc()">Reset</button>
@@ -16,6 +17,7 @@
 
 		<h1>Countdown! </h1>
 		<div id="countDownNum"></div>
+		<div id="breakTimeNum"></div>
 	</form>
 	</div>
 
