@@ -7,13 +7,16 @@
 </head>
 <body>
 	<div class="timer">
-	<!-- <form>
-		<button type="button" onclick="countDown()">COUNT!</button>
-		<span id="number"></span>
-	</form> -->
-		<h1>Countdown! </h1>
-		<div id="countdownNum"></div>
+	<form>
+		<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
+		<button type="button" onclick="countDownFunc()">Start</button>
+		<button type="button" onclick="stopNumFunc()">Stop</button>
+		<button type="button" onclick="resetFunc()">Reset</button>
 
+
+		<h1>Countdown! </h1>
+		<div id="countDownNum"></div>
+	</form>
 	</div>
 
 	<script type="text/javascript" src="app.js"></script>
