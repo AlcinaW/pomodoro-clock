@@ -7,6 +7,9 @@
 </head>
 <body>
 	<div class="timer">
+	
+	<h1>Countdown! </h1>
+
 	<form>
 		<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
 		<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
@@ -15,10 +18,12 @@
 		<button type="button" onclick="resetFunc()">Reset</button>
 	</form>
 
-		<h1>Countdown! </h1>
 		<div id="workTimeNum"></div>
 		<div id="breakTimeNum"></div>
-		<div id="startdiv"></div>
+
+	<svg height="500px" width="500px">
+		<circle cx="60" cy="60" r="50"/>
+	</svg>
 
 	</div>
 
