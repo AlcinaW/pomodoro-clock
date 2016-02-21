@@ -7,23 +7,24 @@
 </head>
 <body>
 	<div class="timer">
-	
-	<h1>Countdown! </h1>
 
-	<form>
-		<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
-		<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
-		<button type="button" onclick="countDownFunc()">Start</button>
-		<button type="button" onclick="pauseNumFunc()">Pause</button>
-		<button type="button" onclick="resetFunc()">Reset</button>
-	</form>
+		<h1>Pomodoro Time</h1>
+		<h2>Countdown!</h2>
 
-		<div id="workTimeNum"></div>
-		<div id="breakTimeNum"></div>
+		<form>
+			<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
+			<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
+			<button type="button" onclick="countDownFunc()">Start</button>
+			<button type="button" onclick="pauseNumFunc()">Pause</button>
+			<button type="button" onclick="resetFunc()">Reset</button>
+		</form>
 
-	<svg height="500px" width="500px">
-		<circle cx="60" cy="60" r="50"/>
-	</svg>
+			<div id="workTimeNum"></div>
+			<div id="breakTimeNum"></div>
+
+		<svg class="progresscircle" height="500px" width="500px">
+			<circle cx="60" cy="60" r="50"/>
+		</svg>
 
 	</div>
 
