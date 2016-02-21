@@ -22,7 +22,8 @@ window.onload = document.getElementById('breakTimeNum').innerHTML = 5;
 
 
 var count = document.getElementById("workTime").value;
-var countDown = (60 * count) * 1000; // convert to milliseconds 
+var countDown = 60 * count; // convert to seconds
+//var countDown = (60 * count) * 1000; // convert to milliseconds
 console.log(countDown);
 
 var myTime;
@@ -38,9 +39,9 @@ function changeNumFunc(){
 	if (countDown <= 0) {
 		clearInterval(myTime);
 	} 
-	if (countDown == 0) {
+	//if (countDown == 0) {
 		// switch to break time
-	}
+	//}
 }
 
 function pauseNumFunc(){ 
@@ -52,11 +53,11 @@ function resetFunc(){
 	pauseNumFunc(); // calls pause function
 	console.log("reset"); 
 	count = document.getElementById("workTime").value;
-	countDown = (60 * count) * 1000; //resets based on number in input field
+	countDown = 60 * count; //resets based on number in input field
 }
 
 //When time in the input is changed, HTML changes as well
 function changeTime() {
 	document.getElementById('workTimeNum').innerHTML = document.getElementById("workTime").value;
-	document.getElementById('breakTimeNum').innerHTML = document.getElementById("breakTime").value;
+	// document.getElementById('breakTimeNum').innerHTML = document.getElementById("breakTime").value;
 }
