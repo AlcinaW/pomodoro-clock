@@ -9,23 +9,14 @@
 	<div class="timer">
 
 		<h1>Pomodoro Time</h1>
-		<h2>Countdown!</h2>
 
-		<form>
-			<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
-			<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
-			<button type="button" onclick="countDownFunc()">Start</button>
-			<button type="button" onclick="pauseNumFunc()">Pause</button>
-			<button type="button" onclick="resetFunc()">Reset</button>
-		</form>
 
-			<div id="work-time-num"></div>
-			<div id="breakTimeNum"></div>
+		<!-- ONE timer display for both work and break -->
+		<div class="clockTime">25:00</div>
 
-		<svg class="progress-circle" height="500px" width="500px">
-			<circle cx="60" cy="60" r="50" stroke="#3d3d3d" fill="#ee741e"
-       fill-opacity="0.5" stroke-opacity="0.8"/>
-		</svg>
+		<!-- Display work and break time amounts, are not inputs -->
+		<div id="work_session"></div>
+		<div id="break_session"></div>
 
 	</div>
 
