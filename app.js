@@ -17,7 +17,7 @@
 // var countDown = (60 * count) * 1000; 
 
 //when page loads make the number of the work and break time 25 and 5 
-window.onload = document.getElementById('workTimeNum').innerHTML = 25;
+window.onload = document.getElementById('work-time-num').innerHTML = 25;
 window.onload = document.getElementById('breakTimeNum').innerHTML = 5;
 
 
@@ -58,6 +58,6 @@ function resetFunc(){
 
 //When time in the input is changed, HTML changes as well
 function changeTime() {
-	document.getElementById('workTimeNum').innerHTML = document.getElementById("workTime").value;
+	document.getElementById('work-time-num').innerHTML = document.getElementById("workTime").value;
 	// document.getElementById('breakTimeNum').innerHTML = document.getElementById("breakTime").value;
 }
