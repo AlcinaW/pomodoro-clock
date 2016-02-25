@@ -17,6 +17,16 @@ var counter = 0;
 //read BOTH + and -, go up or down depending on which is clicked 
 //One function to rule them all
 function incrementMinutes() {
-	
+
 }
+
+// Start button event listener!
+
+//end
+
+function doSomething(button) {
+    // do something with button
+}
+
+//display time in minutes/seconds
 
