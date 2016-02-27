@@ -14,9 +14,16 @@
 		<!-- ONE timer display for both work and break -->
 		<div class="clockTime">25:00</div>
 
-		<!-- Display work and break time amounts, are not inputs -->
-		<div id="work_session">25</div>
-		<div id="break_session">5</div>
+		<!-- Display work and break time amounts as inputs and buttons -->
+		<input type="button" onclick="console.log(work_session.value);decrease()" value="-" min="1"></input>
+		<input onchange="handleChange(this);" id="work_session" type="number" value="2" min="1"></input>
+		<input type="button" onclick="console.log(work_session.value);increase()" value="+"></input>
+		
+		<br />
+
+		<input type="number" id="break_session" value="5" disabled></div>
+
+		<div onclick="" type=""></div>
 
 	</div>
 
