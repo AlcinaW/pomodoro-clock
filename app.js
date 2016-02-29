@@ -5,6 +5,9 @@ console.log(worksession_length.value);
 var break_length = document.getElementById('break_session');
 console.log(break_length.value);
 
+var startStop = document.getElementById("start-stop");
+console.log(startStop.value);
+
 //count for inputs
 // var input = document.getElementsByTagName('input');
 // console.log(input);
@@ -38,6 +41,25 @@ function decrease(){
 	}
 }
 
+
+// button that lets you start or stop the timer
+// function startStop() {
+//     if (audioClip.paused) {
+//     	audioClip.play();   
+//     } else {
+//         audioClip.pause();
+//     }
+// }
+
+//button text swaps when pressed
+function swapText() {
+    if (startStop.value === "Started") {
+    	startStop.value = "Stopped";
+    }
+    else {
+    	startStop.value = "Started";
+    }
+}
 
 
 // function secondsToHms(d) {

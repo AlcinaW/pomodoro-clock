@@ -13,6 +13,13 @@
 		<!-- ONE timer display for both work and break -->
 		<div id="clockTime">25:00 minutes</div>
 
+		<!-- start/stop -->
+		<input onclick="console.log(this.value);swapText()" type="button" value="Start" id="start-stop"></input> 
+
+		<!-- <button type="button" onclick="countDownFunc()">Start</button>
+		<button type="button" onclick="pauseNumFunc()">Pause</button>-->
+		<button type="button" onclick="resetFunc()">Reset</button>
+
 		<!-- Display work and break time amounts as inputs and buttons -->
 		<div class="work-input">
 			<input type="button" onclick="decrease()" value="-"></input>
