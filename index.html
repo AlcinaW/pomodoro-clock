@@ -15,9 +15,9 @@
 		<div class="clockTime">25:00</div>
 
 		<!-- Display work and break time amounts as inputs and buttons -->
-		<input type="button" onclick="console.log(work_session.value);decrease()" value="-" min="1"></input>
-		<input onchange="handleChange(this);" id="work_session" type="number" value="2" min="1"></input>
-		<input type="button" onclick="console.log(work_session.value);increase()" value="+"></input>
+		<input type="button" onclick="decrease()" value="-"></input>
+		<input id="work_session" type="number" value="25" min="1"></input>
+		<input type="button" onclick="increase()" value="+"></input>
 		
 		<br />
 
