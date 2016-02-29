@@ -10,20 +10,23 @@
 
 		<h1>Pomodoro Time</h1>
 
-
 		<!-- ONE timer display for both work and break -->
-		<div class="clockTime">25:00</div>
+		<div id="clockTime">25</div>
 
 		<!-- Display work and break time amounts as inputs and buttons -->
-		<input type="button" onclick="decrease()" value="-"></input>
-		<input id="work_session" type="number" value="25" min="1"></input>
-		<input type="button" onclick="increase()" value="+"></input>
-		
+		<div class="work-input">
+			<input type="button" onclick="decrease()" value="-"></input>
+			<input type="number" id="work_session" value="25" min="1" disabled></input>
+			<input type="button" onclick="increase()" value="+"></input>
+		</div>
+
 		<br />
 
-		<input type="number" id="break_session" value="5" disabled></div>
-
-		<div onclick="" type=""></div>
+		<div class="break-input">
+			<input type="button" onclick="decrease()" value="-"></input>
+			<input type="number" id="break_session" value="5" min="1" disabled></div>
+			<input type="button" onclick="increase()" value="+"></input>
+		</div>
 
 	</div>
 

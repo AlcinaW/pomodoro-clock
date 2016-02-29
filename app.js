@@ -25,6 +25,7 @@ function increase(){
 	value++;
 	worksession_length.value = value;
 	console.log(value);
+	document.getElementById("clockTime").innerHTML = value;
 }
 function decrease(){ 
 	var value = parseInt(worksession_length.value, 10);
@@ -33,6 +34,7 @@ function decrease(){
 	value--;
 	worksession_length.value =  value;
 	console.log(value);
+	document.getElementById("clockTime").innerHTML = value;
 	}
 }
 
