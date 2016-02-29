@@ -6,8 +6,8 @@ var break_length = document.getElementById('break_session');
 console.log(break_length.value);
 
 //count for inputs
-var input = document.getElementsByTagName('input');
-console.log(input);
+// var input = document.getElementsByTagName('input');
+// console.log(input);
 var count = 1;
 
 //getting seconds for timer based on session length
@@ -25,7 +25,7 @@ function increase(){
 	value++;
 	worksession_length.value = value;
 	console.log(value);
-	document.getElementById("clockTime").innerHTML = value;
+	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 }
 function decrease(){ 
 	var value = parseInt(worksession_length.value, 10);
@@ -34,7 +34,7 @@ function decrease(){
 	value--;
 	worksession_length.value =  value;
 	console.log(value);
-	document.getElementById("clockTime").innerHTML = value;
+	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 	}
 }
 
