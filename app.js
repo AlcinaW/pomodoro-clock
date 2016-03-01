@@ -33,52 +33,52 @@ function swapText() {
 //To-do: read BOTH + and -, go up or down depending on which is clicked 
 //One function to rule them all
 // if value === "+" and if value === work
+//THE LEAST DRY THING EVERRRRR To-do: fix this part 
 
-
-
-var plus = document.getElementById("yes");
-var minus = document.getElementById("no");
-
-    yes.onclick = function(){
-        box.style.backgroundColor = "red";
-    }
-
-    no.onclick = function(){
-        box.style.backgroundColor = "green";
-    }
-
-function inputControl(){
-
-	function increase(){
-		//but why have to write in doc.getElement again? 
-		var value = parseInt(worksession_length.value, 10);
-		value = isNaN(value) ? 0 : value;
-		value++;
-		worksession_length.value = value;
-		console.log(value);
-		document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+function increase(){
+	//but why have to write in doc.getElement again? 
+	var value = parseInt(worksession_length.value, 10);
+	value = isNaN(value) ? 0 : value;
+	value++;
+	worksession_length.value = value;
+	console.log(value);
+	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+}
+function decrease(){ 
+	var value = parseInt(worksession_length.value, 10);
+	if (value > 1) {
+	value = isNaN(value) ? 0 : value;
+	value--;
+	worksession_length.value =  value;
+	console.log(value);
+	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 	}
-	function decrease(){ 
-		var value = parseInt(worksession_length.value, 10);
-		if (value > 1) {
-		value = isNaN(value) ? 0 : value;
-		value--;
-		worksession_length.value =  value;
-		console.log(value);
-		document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-		}
+}
+function increase(){
+	//but why have to write in doc.getElement again? 
+	var value = parseInt(break_length.value, 10);
+	value = isNaN(value) ? 0 : value;
+	value++;
+	break_length.value = value;
+	console.log(value);
+	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+}
+function decrease(){ 
+	var value = parseInt(break_length.value, 10);
+	if (value > 1) {
+	value = isNaN(value) ? 0 : value;
+	value--;
+	break_length.value =  value;
+	console.log(value);
+	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
 	}
 }
 
-// button that lets you start or stop the timer
-// function startStop() {
-//     if (audioClip.paused) {
-//     	audioClip.play();   
-//     } else {
-//         audioClip.pause();
-//     }
-// }
+function startCombine(startButton) {
+    startButton.disabled = true;
+    startButton.disabled = false;
 
+}
 
 
 // function secondsToHms(d) {
