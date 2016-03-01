@@ -11,8 +11,14 @@ var startStop = document.getElementById("start-stop");
 console.log(startStop.value);
 
 //count for inputs
-// var input = document.getElementsByTagName('input');
-// console.log(input);
+// var inputs = document.getElementsByTagName('input');
+// console.log(inputs);
+// for (var i = 0; i < inputs.length; i++) {
+//     if (inputs[i].type === 'submit') {
+//         inputs[i].disabled = true;
+//     }
+// }
+
 var count = 1;
 
 //getting seconds for timer based on session length
@@ -35,7 +41,7 @@ function swapText() {
 // if value === "+" and if value === work
 //THE LEAST DRY THING EVERRRRR To-do: fix this part 
 
-function increase(){
+function increaseWork(){
 	//but why have to write in doc.getElement again? 
 	var value = parseInt(worksession_length.value, 10);
 	value = isNaN(value) ? 0 : value;
@@ -44,7 +50,7 @@ function increase(){
 	console.log(value);
 	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 }
-function decrease(){ 
+function decreaseWork(){ 
 	var value = parseInt(worksession_length.value, 10);
 	if (value > 1) {
 	value = isNaN(value) ? 0 : value;
@@ -54,7 +60,7 @@ function decrease(){
 	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 	}
 }
-function increase(){
+function increaseBreak(){
 	//but why have to write in doc.getElement again? 
 	var value = parseInt(break_length.value, 10);
 	value = isNaN(value) ? 0 : value;
@@ -63,7 +69,7 @@ function increase(){
 	console.log(value);
 	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
 }
-function decrease(){ 
+function decreaseBreak(){ 
 	var value = parseInt(break_length.value, 10);
 	if (value > 1) {
 	value = isNaN(value) ? 0 : value;
@@ -74,11 +80,13 @@ function decrease(){
 	}
 }
 
-function startCombine(startButton) {
-    startButton.disabled = true;
-    startButton.disabled = false;
+//On button submit, disable all inputs
 
-}
+// function startCombine(startButton) {
+//     startButton.disabled = true;
+//     startButton.disabled = false;
+
+// }
 
 
 // function secondsToHms(d) {

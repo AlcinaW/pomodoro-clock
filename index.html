@@ -11,7 +11,7 @@
 		<h1>Pomodoro Timer</h1>
 
 		<!-- start/stop -->
-		<input onclick="console.log(this.value);swapText()" type="button" value="Start" id="start-stop"></input> 
+		<input onclick="console.log(this.value);swapText()" type="button" type="submit" value="Start" id="start-stop"></input> 
 
 		<!-- <button type="button" onclick="countDownFunc()">Start</button>
 		<button type="button" onclick="pauseNumFunc()">Pause</button>-->
@@ -23,9 +23,9 @@
 
 		<!-- Display work and break time amounts as inputs and buttons -->
 		<div class="work-input">
-			<input type="button" onclick="decrease()" value="-"></input>
+			<input type="button" onclick="decreaseWork()" value="-"></input>
 			<input type="number" id="work_session" value="25" min="1" disabled></input>
-			<input type="button" onclick="increase()" value="+"></input>
+			<input type="button" onclick="increaseWork()" value="+"></input>
 		</div>
 
 		<br />
@@ -33,9 +33,9 @@
 		<div id="breakTime">5:00 minutes</div>
 
 		<div class="break-input">
-			<input type="button" onclick="decrease()" value="-"></input>
+			<input type="button" onclick="decreaseBreak()" value="-"></input>
 			<input type="number" id="break_session" value="5" min="1" disabled></div>
-			<input type="button" onclick="increase()" value="+"></input>
+			<input type="button" onclick="increaseBreak()" value="+"></input>
 		</div>
 
 	</div>
