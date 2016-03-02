@@ -81,8 +81,8 @@ function decreaseBreak(){
 }
 
 //On button submit, disable all inputs
-function started (){
-	var elems = document.getElementsByTagName('input');
+function disableInputs (){
+	var elems = document.getElementsByName('sessionButton');
 	var len = elems.length;
 
 	for (var i = 0; i < len; i++) {
