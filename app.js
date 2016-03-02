@@ -57,7 +57,11 @@ function decreaseWork(){
 	value--;
 	worksession_length.value =  value;
 	console.log(value);
-	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+		if (value > 1 ){
+			document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+		} else {
+			document.getElementById("clockTime").innerHTML = value + ":00 minute";
+		}
 	}
 }
 function increaseBreak(){
@@ -76,7 +80,11 @@ function decreaseBreak(){
 	value--;
 	break_length.value =  value;
 	console.log(value);
-	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+		if (value > 1 ){
+		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+		} else {
+			document.getElementById("breakTime").innerHTML = value + ":00 minute";
+		}
 	}
 }
 
