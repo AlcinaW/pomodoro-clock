@@ -81,12 +81,14 @@ function decreaseBreak(){
 }
 
 //On button submit, disable all inputs
+function started (){
+	var elems = document.getElementsByTagName('input');
+	var len = elems.length;
 
-// function startCombine(startButton) {
-//     startButton.disabled = true;
-//     startButton.disabled = false;
-
-// }
+	for (var i = 0; i < len; i++) {
+    	elems[i].disabled = true;
+	}
+}
 
 
 // function secondsToHms(d) {
