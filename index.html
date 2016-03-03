@@ -8,24 +8,38 @@
 <body>
 	<div class="timer">
 
-		<h1>Pomodoro Time</h1>
-		<h2>Countdown!</h2>
+		<h1>Pomodoro Timer</h1>
 
-		<form>
-			<input type="number" id="workTime" value="25" onchange="changeTime()"></input>
-			<input type="number" id="breakTime" value="5" onchange="changeTime()"></input>
-			<button type="button" onclick="countDownFunc()">Start</button>
-			<button type="button" onclick="pauseNumFunc()">Pause</button>
-			<button type="button" onclick="resetFunc()">Reset</button>
-		</form>
+		<!-- start/stop -->
+		<!-- has to be a button or else will get disabled -->
+		<button onclick="console.log(this.value);disableInputs();countDownFunc()" type="button" value="Started" id="start-stop">Start</button> 
 
-			<div id="work-time-num"></div>
-			<div id="breakTimeNum"></div>
+		<button type="button" onclick="pauseNumFunc()">Pause</button>
+		<button type="button" onclick="resetFunc()">Reset</button>
 
-		<svg class="progress-circle" height="500px" width="500px">
-			<circle cx="60" cy="60" r="50" stroke="#3d3d3d" fill="#ee741e"
-       fill-opacity="0.5" stroke-opacity="0.8"/>
-		</svg>
+		<!-- TIMER AREA-->
+		<div id="countingDownTime">Whut</div>
+
+		<!-- ONE timer display for both work and break -->
+		<strong><p>Work Time</p></strong>
+		<div id="clockTime">25:00 minutes</div>
+
+		<!-- Display work and break time amounts as inputs and buttons -->
+		<div class="work-input">
+			<input type="button" onclick="decrease(this.id)" id="workDecrease" value="-" name="sessionButton"></input>
+			<input type="number" id="work_session" value="25" min="1" disabled></input>
+			<input type="button" onclick="increase(this.id)" id="workIncrease" value="+" name="sessionButton"></input>
+		</div>
+
+		<br />
+		<strong><p>Break Time</p></strong>
+		<div id="breakTime">5:00 minutes</div>
+
+		<div class="break-input">
+			<input type="button" onclick="decrease(this.id)" id="breakDecrease" value="-" name="sessionButton"></input>
+			<input type="number" id="break_session" value="5" min="1" disabled></input>
+			<input type="button" onclick="increase(this.id)" id="breakIncrease" value="+" name="sessionButton"></input>
+		</div>
 
 	</div>
 

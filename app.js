@@ -1,41 +1,34 @@
-// window.onload = setInterval(function () {
-//     var d = new Date();
-//     var seconds = d.getMinutes() * 60 + d.getSeconds(); 
-//     var twoMin = 60 * 2; //2 minutes to test
-//     var timeleft = twoMin - seconds % twoMin; 
-//     var result = parseInt(timeleft / 60) + ':' + timeleft % 60; 
-//     document.getElementById('countdownNum').innerHTML = result;
-// }, 500);
+// length of work is equal to HTML atm, which is 25
+var worksession_length = document.getElementById('work_session');
+console.log(worksession_length.value);
+// break is 5, as in HTML
 
-// console.log(result);
+var break_length = document.getElementById('break_session');
+console.log(break_length.value);
 
-// function stopFunction {
-// 	clearInterval();
-// }
+// controls status of timer, if stopped or started
+var startStop = document.getElementById("start-stop");
+console.log(startStop.value);
 
-// var count = document.getElementById("workTime").value;
-// var countDown = (60 * count) * 1000; 
+//count variable for adding to time when inputting how long timer will run for
+var count = 1;
 
-//when page loads make the number of the work and break time 25 and 5 
-window.onload = document.getElementById('work-time-num').innerHTML = 25;
-window.onload = document.getElementById('breakTimeNum').innerHTML = 5;
-
-
-var count = document.getElementById("workTime").value;
-var countDown = 60 * count; // convert to seconds
-//var countDown = (60 * count) * 1000; // convert to milliseconds
+//getting seconds for timer based on session length
+var countDown = 60 * worksession_length.value; // minutes number convert to seconds
 console.log(countDown);
 
 var myTime;
 // starts counting down by the second when Start button is pressed
 function countDownFunc(){
-	console.log("started");
+	console.log("countDownFunc called");
 	myTime = setInterval(changeNumFunc, 1000); 
 }
 // changes the time left, prevents number from going below zero 
+//To-Do: reset break OR work time depending on what is active? 
 function changeNumFunc(){
 	countDown--;
 	console.log(countDown);
+	document.getElementById("countingDownTime").innerHTML = countDown;
 	if (countDown <= 0) {
 		clearInterval(myTime);
 	} 
@@ -49,15 +42,119 @@ function pauseNumFunc(){
 	console.log('paused');
 }
 
+
+//To-do: reset needs to also clear past value of timer?
 function resetFunc(){
 	pauseNumFunc(); // calls pause function
 	console.log("reset"); 
-	count = document.getElementById("workTime").value;
+	//this calls current number
+	count = document.getElementById("work_session").value;
 	countDown = 60 * count; //resets based on number in input field
+	//re-enable inputs
+	var elems = document.getElementsByName('sessionButton');
+	var len = elems.length;
+
+	for (var i = 0; i < len; i++) {
+    	elems[i].disabled = false;
+	}
 }
 
-//When time in the input is changed, HTML changes as well
-function changeTime() {
-	document.getElementById('work-time-num').innerHTML = document.getElementById("workTime").value;
-	// document.getElementById('breakTimeNum').innerHTML = document.getElementById("breakTime").value;
+// up and down for work and break session adjustment 
+//To-do: read BOTH + and -, go up or down depending on which is clicked 
+//One function to rule them all?
+// if value === "+" and if value === work
+//THE LEAST DRY THING EVERRRRR To-do: fix this part
+function increase(clicked_id){
+	if (clicked_id === "workIncrease") {
+		var value = parseInt(worksession_length.value, 10);
+		value = isNaN(value) ? 0 : value;
+		value++;
+		worksession_length.value = value;
+		console.log("Work time is now " + value + " minutes");
+		document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+	} 
+	if (clicked_id === "breakIncrease") {
+		var value = parseInt(break_length.value, 10);
+		value = isNaN(value) ? 0 : value;
+		value++;
+		break_length.value = value;
+		console.log("Break time is now " + value + " minutes");
+		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+	}
 }
+
+function decrease(clicked_id) {
+	if (clicked_id === "workDecrease") {
+			var value = parseInt(worksession_length.value, 10);
+		if (value > 1) {
+			value = isNaN(value) ? 0 : value;
+			value--;
+			worksession_length.value =  value;
+			console.log("Work time is now " + value + " minutes");
+				if (value > 1 ){
+					document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+				} else {
+					document.getElementById("clockTime").innerHTML = value + ":00 minute";
+				}
+		}
+	}
+	if (clicked_id === "breakDecrease") {
+		var value = parseInt(break_length.value, 10);
+		if (value > 1) {
+			value = isNaN(value) ? 0 : value;
+			value--;
+			break_length.value =  value;
+			console.log("Break time is now " + value + " minutes");
+				if (value > 1 ){
+					document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+				} else {
+					document.getElementById("breakTime").innerHTML = value + ":00 minute";
+				}
+		}
+	}
+}
+
+//On button submit, disable all inputs
+function disableInputs(){
+	var elems = document.getElementsByName('sessionButton');
+	var len = elems.length;
+
+	for (var i = 0; i < len; i++) {
+    	elems[i].disabled = true;
+	}
+}
+
+
+// Time to tell the time in seconds!
+// function secondsToHms(d) {
+// d = Number(d);
+// var h = Math.floor(d / 3600);
+// var m = Math.floor(d % 3600 / 60);
+// var s = Math.floor(d % 3600 % 60);
+// return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); }
+
+
+// function timeFormat(t) {
+//     var seconds = Math.floor( (t/1000) % 60 );
+//     var minutes = Math.floor( (t/1000/60) % 60 );
+//     var milliseconds = t;
+
+//     return {
+//         minutes: minutes,
+//         seconds: seconds,
+//         milliseconds: milliseconds
+//     }
+// }
+
+//button text swaps when pressed
+//But start doesn't control stop, why do this.
+// function swapText() {
+//     if (startStop.value === "Started") {
+//     	startStop.value = "Stopped";
+//     	document.getElementById("start-stop").innerHTML = "Stopped";
+//     }
+//     else {
+//     	startStop.value = "Started";
+//     	document.getElementById("start-stop").innerHTML = "RAWR";
+//     }
+// }
