@@ -3,7 +3,7 @@
 <head>
 	<title>Greato-daze~ Pomodoro time!</title>
 
-	<style type="text/css" href="app.css"></style>
+	<link rel="stylesheet" type="text/css" href="app.css"></link>
 </head>
 <body>
 	<div class="timer">
@@ -18,25 +18,27 @@
 		<button type="button" onclick="resetFunc()">Reset</button>
 
 		<!-- TIMER AREA-->
-		<div id="countingDownTime">Whut</div>
+		<div id="countingDownTime">25:00 minutes</div>
 
 		<!-- ONE timer display for both work and break -->
 		<strong><p>Work Time</p></strong>
-		<div id="clockTime">25:00 minutes</div>
 
 		<!-- Display work and break time amounts as inputs and buttons -->
 		<div class="work-input">
 			<input type="button" onclick="decrease(this.id)" id="workDecrease" value="-" name="sessionButton"></input>
+			<div id="clockTime">25:00 minutes</div>
+			<!-- this below is invisible -->
 			<input type="number" id="work_session" value="25" min="1" disabled></input>
 			<input type="button" onclick="increase(this.id)" id="workIncrease" value="+" name="sessionButton"></input>
 		</div>
 
 		<br />
 		<strong><p>Break Time</p></strong>
-		<div id="breakTime">5:00 minutes</div>
 
 		<div class="break-input">
 			<input type="button" onclick="decrease(this.id)" id="breakDecrease" value="-" name="sessionButton"></input>
+			<div id="breakTime">5:00 minutes</div>
+			<!-- this below is invisible -->
 			<input type="number" id="break_session" value="5" min="1" disabled></input>
 			<input type="button" onclick="increase(this.id)" id="breakIncrease" value="+" name="sessionButton"></input>
 		</div>
