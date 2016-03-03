@@ -1,3 +1,8 @@
-#increase {
-
+#work_session, #break_session {
+	display: none;
+	height: 0;
+	width: 0;
+	position: absolute;
+    background: transparent;
+    border: none;
 }
