@@ -26,9 +26,9 @@
 
 		<!-- Display work and break time amounts as inputs and buttons -->
 		<div class="work-input">
-			<input type="button" onclick="decreaseWork()" value="-" name="sessionButton"></input>
+			<input type="button" onclick="decrease(this.id)" id="workDecrease" value="-" name="sessionButton"></input>
 			<input type="number" id="work_session" value="25" min="1" disabled></input>
-			<input type="button" onclick="increaseWork()" value="+" name="sessionButton"></input>
+			<input type="button" onclick="increase(this.id)" id="workIncrease" value="+" name="sessionButton"></input>
 		</div>
 
 		<br />
@@ -36,9 +36,9 @@
 		<div id="breakTime">5:00 minutes</div>
 
 		<div class="break-input">
-			<input type="button" onclick="decreaseBreak()" value="-" name="sessionButton"></input>
+			<input type="button" onclick="decrease(this.id)" id="breakDecrease" value="-" name="sessionButton"></input>
 			<input type="number" id="break_session" value="5" min="1" disabled></input>
-			<input type="button" onclick="increaseBreak()" value="+" name="sessionButton"></input>
+			<input type="button" onclick="increase(this.id)" id="breakIncrease" value="+" name="sessionButton"></input>
 		</div>
 
 	</div>
