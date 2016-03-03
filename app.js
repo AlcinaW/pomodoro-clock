@@ -55,6 +55,13 @@ function resetFunc(){
 	console.log("reset"); 
 	count = document.getElementById("work_session").value;
 	countDown = 60 * count; //resets based on number in input field
+	//re-enable inputs
+	var elems = document.getElementsByName('sessionButton');
+	var len = elems.length;
+
+	for (var i = 0; i < len; i++) {
+    	elems[i].disabled = false;
+	}
 }
 
 // up and down for work and break session adjustment 
@@ -70,7 +77,7 @@ function increase(clicked_id){
 	value = isNaN(value) ? 0 : value;
 	value++;
 	worksession_length.value = value;
-	console.log(value);
+	console.log("Work time is now " + value + " minutes");
 	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 	} 
 	if (clicked_id === "breakIncrease") {
@@ -78,7 +85,7 @@ function increase(clicked_id){
 	value = isNaN(value) ? 0 : value;
 	value++;
 	break_length.value = value;
-	console.log(value);
+	console.log("Break time is now " + value + " minutes");
 	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
 	}
 }
@@ -90,7 +97,7 @@ function decrease(clicked_id) {
 		value = isNaN(value) ? 0 : value;
 		value--;
 		worksession_length.value =  value;
-		console.log(value);
+		console.log("Work time is now " + value + " minutes");
 			if (value > 1 ){
 				document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 			} else {
@@ -104,7 +111,7 @@ function decrease(clicked_id) {
 		value = isNaN(value) ? 0 : value;
 		value--;
 		break_length.value =  value;
-		console.log(value);
+		console.log("Break time is now " + value + " minutes");
 			if (value > 1 ){
 			document.getElementById("breakTime").innerHTML = value + ":00 minutes";
 			} else {
