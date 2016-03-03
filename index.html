@@ -12,11 +12,13 @@
 
 		<!-- start/stop -->
 		<!-- has to be a button or else will get disabled -->
-		<button onclick="console.log(this.value);swapText();disableInputs()" type="button" value="Start" id="start-stop">Start</button> 
+		<button onclick="console.log(this.value);swapText();disableInputs();countDownFunc()" type="button" value="Start" id="start-stop">Start</button> 
 
-		<!-- <button type="button" onclick="countDownFunc()">Start</button>
-		<button type="button" onclick="pauseNumFunc()">Pause</button>-->
+		<button type="button" onclick="pauseNumFunc()">Pause</button>
 		<button type="button" onclick="resetFunc()">Reset</button>
+
+		<!-- TIMER AREA-->
+		<div id="countingDownTime">Whut</div>
 
 		<!-- ONE timer display for both work and break -->
 		<strong><p>Work Time</p></strong>
