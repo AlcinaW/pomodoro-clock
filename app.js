@@ -61,51 +61,55 @@ function resetFunc(){
 //To-do: read BOTH + and -, go up or down depending on which is clicked 
 //One function to rule them all
 // if value === "+" and if value === work
-//THE LEAST DRY THING EVERRRRR To-do: fix this part 
+//THE LEAST DRY THING EVERRRRR To-do: fix this part
 
-function increaseWork(){
-	//but why have to write in doc.getElement again? 
+
+function increase(clicked_id){
+	if (clicked_id === "workIncrease") {
 	var value = parseInt(worksession_length.value, 10);
 	value = isNaN(value) ? 0 : value;
 	value++;
 	worksession_length.value = value;
 	console.log(value);
 	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-}
-function decreaseWork(){ 
-	var value = parseInt(worksession_length.value, 10);
-	if (value > 1) {
-	value = isNaN(value) ? 0 : value;
-	value--;
-	worksession_length.value =  value;
-	console.log(value);
-		if (value > 1 ){
-			document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-		} else {
-			document.getElementById("clockTime").innerHTML = value + ":00 minute";
-		}
-	}
-}
-function increaseBreak(){
-	//but why have to write in doc.getElement again? 
+	} 
+	if (clicked_id === "breakIncrease") {
 	var value = parseInt(break_length.value, 10);
 	value = isNaN(value) ? 0 : value;
 	value++;
 	break_length.value = value;
 	console.log(value);
 	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+	}
 }
-function decreaseBreak(){ 
-	var value = parseInt(break_length.value, 10);
-	if (value > 1) {
-	value = isNaN(value) ? 0 : value;
-	value--;
-	break_length.value =  value;
-	console.log(value);
-		if (value > 1 ){
-		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-		} else {
-			document.getElementById("breakTime").innerHTML = value + ":00 minute";
+
+function decrease(clicked_id) {
+	if (clicked_id === "workDecrease") {
+			var value = parseInt(worksession_length.value, 10);
+		if (value > 1) {
+		value = isNaN(value) ? 0 : value;
+		value--;
+		worksession_length.value =  value;
+		console.log(value);
+			if (value > 1 ){
+				document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+			} else {
+				document.getElementById("clockTime").innerHTML = value + ":00 minute";
+			}
+		}
+	}
+	if (clicked_id === "breakDecrease") {
+		var value = parseInt(break_length.value, 10);
+		if (value > 1) {
+		value = isNaN(value) ? 0 : value;
+		value--;
+		break_length.value =  value;
+		console.log(value);
+			if (value > 1 ){
+			document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+			} else {
+				document.getElementById("breakTime").innerHTML = value + ":00 minute";
+			}
 		}
 	}
 }
