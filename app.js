@@ -17,23 +17,14 @@ var count = 1;
 var countDown = 60 * worksession_length.value; // minutes number convert to seconds
 console.log(countDown);
 
-//button text swaps when pressed
-function swapText() {
-    if (startStop.value === "Started") {
-    	startStop.value = "Stopped";
-    }
-    else {
-    	startStop.value = "Started";
-    }
-}
-
 var myTime;
 // starts counting down by the second when Start button is pressed
 function countDownFunc(){
-	console.log("started");
+	console.log("countDownFunc called");
 	myTime = setInterval(changeNumFunc, 1000); 
 }
 // changes the time left, prevents number from going below zero 
+//To-Do: reset break OR work time depending on what is active? 
 function changeNumFunc(){
 	countDown--;
 	console.log(countDown);
@@ -51,9 +42,12 @@ function pauseNumFunc(){
 	console.log('paused');
 }
 
+
+//To-do: reset needs to also clear past value of timer?
 function resetFunc(){
 	pauseNumFunc(); // calls pause function
 	console.log("reset"); 
+	//this calls current number
 	count = document.getElementById("work_session").value;
 	countDown = 60 * count; //resets based on number in input field
 	//re-enable inputs
@@ -70,8 +64,6 @@ function resetFunc(){
 //One function to rule them all?
 // if value === "+" and if value === work
 //THE LEAST DRY THING EVERRRRR To-do: fix this part
-
-
 function increase(clicked_id){
 	if (clicked_id === "workIncrease") {
 		var value = parseInt(worksession_length.value, 10);
@@ -133,6 +125,7 @@ function disableInputs(){
 }
 
 
+// Time to tell the time in seconds!
 // function secondsToHms(d) {
 // d = Number(d);
 // var h = Math.floor(d / 3600);
@@ -153,9 +146,15 @@ function disableInputs(){
 //     }
 // }
 
-
-// Start button event listener!
-
-
-//display time in minutes/seconds
-
+//button text swaps when pressed
+//But start doesn't control stop, why do this.
+// function swapText() {
+//     if (startStop.value === "Started") {
+//     	startStop.value = "Stopped";
+//     	document.getElementById("start-stop").innerHTML = "Stopped";
+//     }
+//     else {
+//     	startStop.value = "Started";
+//     	document.getElementById("start-stop").innerHTML = "RAWR";
+//     }
+// }
