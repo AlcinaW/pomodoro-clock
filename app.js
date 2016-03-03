@@ -14,7 +14,7 @@ console.log(startStop.value);
 var count = 1;
 
 //getting seconds for timer based on session length
-var countDown = 60 * worksession_length.value; // minutes number convert to seconds
+var countDown; // minutes number convert to seconds
 console.log(countDown);
 
 var myTime;
@@ -26,6 +26,8 @@ function countDownFunc(){
 // changes the time left, prevents number from going below zero 
 //To-Do: reset break OR work time depending on what is active? 
 function changeNumFunc(){
+	var countDown = 60 * worksession_length.value; // minutes number convert to seconds
+	console.log(countDown);
 	countDown--;
 	console.log(countDown);
 	document.getElementById("countingDownTime").innerHTML = countDown;
