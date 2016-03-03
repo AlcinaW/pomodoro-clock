@@ -10,6 +10,7 @@ console.log(break_length.value);
 var startStop = document.getElementById("start-stop");
 console.log(startStop.value);
 
+//count variable for adding to time when inputting how long timer will run for
 var count = 1;
 
 //getting seconds for timer based on session length
@@ -66,27 +67,27 @@ function resetFunc(){
 
 // up and down for work and break session adjustment 
 //To-do: read BOTH + and -, go up or down depending on which is clicked 
-//One function to rule them all
+//One function to rule them all?
 // if value === "+" and if value === work
 //THE LEAST DRY THING EVERRRRR To-do: fix this part
 
 
 function increase(clicked_id){
 	if (clicked_id === "workIncrease") {
-	var value = parseInt(worksession_length.value, 10);
-	value = isNaN(value) ? 0 : value;
-	value++;
-	worksession_length.value = value;
-	console.log("Work time is now " + value + " minutes");
-	document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+		var value = parseInt(worksession_length.value, 10);
+		value = isNaN(value) ? 0 : value;
+		value++;
+		worksession_length.value = value;
+		console.log("Work time is now " + value + " minutes");
+		document.getElementById("clockTime").innerHTML = value + ":00 minutes";
 	} 
 	if (clicked_id === "breakIncrease") {
-	var value = parseInt(break_length.value, 10);
-	value = isNaN(value) ? 0 : value;
-	value++;
-	break_length.value = value;
-	console.log("Break time is now " + value + " minutes");
-	document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+		var value = parseInt(break_length.value, 10);
+		value = isNaN(value) ? 0 : value;
+		value++;
+		break_length.value = value;
+		console.log("Break time is now " + value + " minutes");
+		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
 	}
 }
 
@@ -94,35 +95,35 @@ function decrease(clicked_id) {
 	if (clicked_id === "workDecrease") {
 			var value = parseInt(worksession_length.value, 10);
 		if (value > 1) {
-		value = isNaN(value) ? 0 : value;
-		value--;
-		worksession_length.value =  value;
-		console.log("Work time is now " + value + " minutes");
-			if (value > 1 ){
-				document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-			} else {
-				document.getElementById("clockTime").innerHTML = value + ":00 minute";
-			}
+			value = isNaN(value) ? 0 : value;
+			value--;
+			worksession_length.value =  value;
+			console.log("Work time is now " + value + " minutes");
+				if (value > 1 ){
+					document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+				} else {
+					document.getElementById("clockTime").innerHTML = value + ":00 minute";
+				}
 		}
 	}
 	if (clicked_id === "breakDecrease") {
 		var value = parseInt(break_length.value, 10);
 		if (value > 1) {
-		value = isNaN(value) ? 0 : value;
-		value--;
-		break_length.value =  value;
-		console.log("Break time is now " + value + " minutes");
-			if (value > 1 ){
-			document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-			} else {
-				document.getElementById("breakTime").innerHTML = value + ":00 minute";
-			}
+			value = isNaN(value) ? 0 : value;
+			value--;
+			break_length.value =  value;
+			console.log("Break time is now " + value + " minutes");
+				if (value > 1 ){
+					document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+				} else {
+					document.getElementById("breakTime").innerHTML = value + ":00 minute";
+				}
 		}
 	}
 }
 
 //On button submit, disable all inputs
-function disableInputs (){
+function disableInputs(){
 	var elems = document.getElementsByName('sessionButton');
 	var len = elems.length;
 
