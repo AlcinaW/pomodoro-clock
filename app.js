@@ -27,14 +27,39 @@ function countDownFunc(){
 //To-Do: reset break OR work time depending on what is active? 
 function changeNumFunc(){
 	countDown--;
+	var minutes = Math.floor(countDown / 60); 
+	var seconds = countDown % 60; 
 	console.log(countDown);
-	document.getElementById("countingDownTime").innerHTML = countDown;
+
+	var timeDisplay = minutes + ":" + seconds;
+	console.log(timeDisplay);
+
+	document.getElementById("countingDownTime").innerHTML = timeDisplay;
 	if (countDown <= 0) {
 		clearInterval(myTime);
 	} 
 	//if (countDown == 0) {
 		// switch to break time
 	//}
+}
+
+//function that defines break time
+//loops back to work time after
+function breakCountDown() {
+	var countDownBreak = 60 * break_length.value;
+	countDownBreak--;
+	var minutes = Math.floor(countDownBreak / 60); 
+	var seconds = countDownBreak % 60; 
+	console.log(countDownBreak);
+	console.log(minutes + ":" + seconds);
+
+	document.getElementById("countingDownTime").innerHTML = minutes + ":" + seconds;
+	if (countDownBreak <= 0) {
+		//this stops THIS timer
+		clearInterval(myTime);
+		//call work timer function
+		countDownFunc();
+	} 
 }
 
 function pauseNumFunc(){ 
