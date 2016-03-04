@@ -14,8 +14,13 @@ console.log(startStop.value);
 var count = 1;
 
 //getting seconds for timer based on session length
-var countDown = 60 * worksession_length.value; // minutes number convert to seconds
+//do not set the "seconds" here, or else Start will use "old" time
+var countDown; 
 console.log(countDown);
+//ditto here
+var countDownBreak;
+//var countDownBreak = 60 * break_length.value;
+console.log(countDownBreak);
 
 var myTime;
 // starts counting down by the second when Start button is pressed
@@ -26,9 +31,14 @@ function countDownFunc(){
 // changes the time left, prevents number from going below zero 
 //To-Do: reset break OR work time depending on what is active? 
 function changeNumFunc(){
+	var countDown = 60 * worksession_length.value; // minutes number convert to seconds
 	countDown--;
+	var minutes = Math.floor(countDown / 60); 
+	var seconds = countDown % 60; 
 	console.log(countDown);
-	document.getElementById("countingDownTime").innerHTML = countDown;
+	console.log(minutes + ":" + seconds);
+
+	document.getElementById("countingDownTime").innerHTML = minutes + ":" + seconds;
 	if (countDown <= 0) {
 		clearInterval(myTime);
 	} 
@@ -36,6 +46,8 @@ function changeNumFunc(){
 		// switch to break time
 	//}
 }
+
+
 
 function pauseNumFunc(){ 
 	clearInterval(myTime);
