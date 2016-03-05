@@ -10,37 +10,41 @@
 
 		<h1>Pomodoro Timer</h1>
 
-		<!-- start/stop -->
-		<!-- has to be a button or else will get disabled -->
-		<button onclick="console.log(this.value);disableInputs();countDownFunc()" type="button" value="Started" id="start-stop">Start</button> 
+		<button onclick="console.log(this.value);startWorkCountDown()" type="button" value="start" id="start">Start</button> 
 
-		<button type="button" onclick="pauseNumFunc()">Pause</button>
+		<button type="button" onclick="pauseCountDown()">Pause</button>
+
 		<button type="button" onclick="resetFunc()">Reset</button>
 
+		<br />
+
 		<!-- TIMER AREA-->
-		<div id="countingDownTime">25:00 minutes</div>
+		<div id="display"><span id="timerDisplay"></span> minutes</div>
+		<span id="timerText"></span>
+		<!-- <span id="workTime"></span>
+		<span id="breakTime"></span> -->
 
 		<!-- ONE timer display for both work and break -->
 		<strong><p>Work Time</p></strong>
 
 		<!-- Display work and break time amounts as inputs and buttons -->
 		<div class="work-input">
-			<input type="button" onclick="decrease(this.id)" id="workDecrease" value="-" name="sessionButton"></input>
-			<div id="clockTime">25:00 minutes</div>
-			<!-- this below is invisible -->
-			<input type="number" id="work_session" value="25" min="1" disabled></input>
-			<input type="button" onclick="increase(this.id)" id="workIncrease" value="+" name="sessionButton"></input>
+			<input type="button" onclick="buttonControl(this.id)" id="workDecrease" value="-" name="sessionButton"></input>
+			<!-- <input type="number" id="work_session" value="25" min="1" disabled></input>-->
+			<span id="workTime"></span>
+			<input type="button" onclick="buttonControl(this.id)" id="workIncrease" value="+" name="sessionButton"></input>
 		</div>
 
 		<br />
 		<strong><p>Break Time</p></strong>
 
 		<div class="break-input">
-			<input type="button" onclick="decrease(this.id)" id="breakDecrease" value="-" name="sessionButton"></input>
-			<div id="breakTime">5:00 minutes</div>
+			<input type="button" onclick="buttonControl(this.id)" id="breakDecrease" value="-" name="sessionButton"></input>
+			<span id="breakTime"></span>
+			<!-- <div id="breakTime">5:00 minutes</div> -->
 			<!-- this below is invisible -->
-			<input type="number" id="break_session" value="5" min="1" disabled></input>
-			<input type="button" onclick="increase(this.id)" id="breakIncrease" value="+" name="sessionButton"></input>
+			<!--<input type="number" id="break_session" value="5" min="1" disabled></input>-->
+			<input type="button" onclick="buttonControl(this.id)" id="breakIncrease" value="+" name="sessionButton"></input>
 		</div>
 
 	</div>

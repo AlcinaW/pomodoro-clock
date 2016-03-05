@@ -1,185 +1,186 @@
-// length of work is equal to HTML atm, which is 25
-var worksession_length = document.getElementById('work_session');
-console.log(worksession_length.value);
-// break is 5, as in HTML
+var myTime; 
+//sets current work time on page to 25 minutes
+var workTime = document.getElementById('workTime').innerHTML = 25;
+console.log(workTime);
+//sets break time on page to 5 minutes
+var breakTime = document.getElementById('breakTime').innerHTML = 5;
+console.log(breakTime);
 
-var break_length = document.getElementById('break_session');
-console.log(break_length.value);
+//calculates seconds
+var remainingSeconds = workTime * 60;
 
-// controls status of timer, if stopped or started
-var startStop = document.getElementById("start-stop");
-console.log(startStop.value);
+document.getElementById("timerDisplay").innerHTML = workTime;
 
-//count variable for adding to time when inputting how long timer will run for
-var count = 1;
-
-//getting seconds for timer based on session length
-var countDown = 60 * worksession_length.value; // minutes number convert to seconds
-console.log(countDown);
-
-var myTime;
-// starts counting down by the second when Start button is pressed
-function countDownFunc(){
-	console.log("countDownFunc called");
-	myTime = setInterval(changeNumFunc, 1000); 
-}
-// changes the time left, prevents number from going below zero 
-//To-Do: reset break OR work time depending on what is active? 
-function changeNumFunc(){
-	countDown--;
-	var minutes = Math.floor(countDown / 60); 
-	var seconds = countDown % 60; 
-	console.log(countDown);
-
-	var timeDisplay = minutes + ":" + seconds;
-	console.log(timeDisplay);
-
-	document.getElementById("countingDownTime").innerHTML = timeDisplay;
-	if (countDown <= 0) {
-		clearInterval(myTime);
-	} 
-	//if (countDown == 0) {
-		// switch to break time
-	//}
+//controls START button
+function startWorkCountDown(){
+	document.getElementById("start").disabled = true;
+	//callback that tells next function to run
+	timerFunc(callback);
 }
 
-//function that defines break time
-//loops back to work time after
-function breakCountDown() {
-	var countDownBreak = 60 * break_length.value;
-	countDownBreak--;
-	var minutes = Math.floor(countDownBreak / 60); 
-	var seconds = countDownBreak % 60; 
-	console.log(countDownBreak);
-	console.log(minutes + ":" + seconds);
-
-	document.getElementById("countingDownTime").innerHTML = minutes + ":" + seconds;
-	if (countDownBreak <= 0) {
-		//this stops THIS timer
-		clearInterval(myTime);
-		//call work timer function
-		countDownFunc();
-	} 
-}
-
-function pauseNumFunc(){ 
+// controls pause 
+function pauseCountDown(){ 
 	clearInterval(myTime);
 	console.log('paused');
+	//re-enable Start button when pressed
+	document.getElementById("start").disabled = false;
 }
 
+// controls reset 
+function resetFunc() {
+  clearInterval(myTime);
+  remainingSeconds = workTime * 60;
+  //calls start work function
+  startWorkCountDown();
+}
 
-//To-do: reset needs to also clear past value of timer?
-function resetFunc(){
-	pauseNumFunc(); // calls pause function
-	console.log("reset"); 
-	//this calls current number
-	count = document.getElementById("work_session").value;
-	countDown = 60 * count; //resets based on number in input field
-	//re-enable inputs
-	var elems = document.getElementsByName('sessionButton');
-	var len = elems.length;
+// changes seconds number to look like time
+function displayCountDown(remainingTime) {
+	var minutes = Math.floor(remainingTime / 60); 
+	var seconds = remainingTime % 60; 
+	console.log(remainingTime);
+	console.log(minutes + ":" + seconds);
 
-	for (var i = 0; i < len; i++) {
-    	elems[i].disabled = false;
+	if (remainingTime % 60 >= 10) {
+		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
+	} else {
+		document.getElementById("timerDisplay").innerHTML = minutes + ":" + "0" + seconds;
+	}	
+}
+
+function timerFunc(tomato) {
+	var remainingTime = remainingSeconds;
+	//setTimeOut callback
+	myTime = setTimeout(function() {
+		displayCountDown(remainingTime);
+		if (remainingTime >= 0) {
+			// if greater than 0, keep doing down by one
+			remainingSeconds--;
+			timerFunc(tomato);
+		} else {
+			clearInterval();
+			tomato();
+		}
+	}, 1000); //delay
+}
+
+//callback for breaktime!
+var callback = function() {
+  console.log('callback yoo');
+  document.getElementById('timerText').innerHTML = "Break time!";
+  remainingSeconds = breakTime * 60;
+  //yet another callback
+  timerFunc(callbackRest);
+};
+
+var callbackRest = function() {
+  clearInterval(myTime);
+  console.log('callbackRest');
+  document.getElementById('timerText').innerHTML = "Work time~";
+  remainingSeconds = workTime * 60;
+  //controls Start button
+  document.getElementById("start").disabled = false;
+  //go back to work time? THIS IS NEW
+  return ( startWorkCountDown() );
+};
+
+// controls buttons to increase and decrease inputs 
+//updates numbers as you go
+//controls all buttons. When this.is is send, checks for matches, then if statement
+//To-do: addEventListener on JS side instead?
+function buttonControl(clicked_id){ 
+	if (clicked_id === "workIncrease") { 
+		workTime++;
+	  	document.getElementById('workTime').innerHTML = workTime;
+	  	remainingSeconds = workTime * 60;
+	  	console.log("Work time is now " + workTime + " minutes");
+	}
+	if (clicked_id === "breakIncrease") { 
+  		breakTime++;
+  		document.getElementById('breakTime').innerHTML = breakTime;
+  		console.log("Break time is now " + breakTime + " minutes");
+	}
+	if (clicked_id === "workDecrease") { 
+		if (workTime > 1) { //min time is 1 minute
+			workTime = isNaN(workTime) ? 0 : workTime;
+			workTime--;
+			document.getElementById('workTime').innerHTML = workTime;
+			remainingSeconds = workTime * 60;
+			console.log("Work time is now " + workTime + " minutes");
+		}
+	}
+	if (clicked_id === "breakDecrease") { 
+	  if (breakTime > 1) { //min time is 1 minute
+		breakTime = isNaN(breakTime) ? 0 : breakTime;
+		breakTime--;
+		document.getElementById('breakTime').innerHTML = breakTime;
+		console.log("Break time is now " + breakTime + " minutes");
+	  }
 	}
 }
+
 
 // up and down for work and break session adjustment 
 //To-do: read BOTH + and -, go up or down depending on which is clicked 
 //One function to rule them all?
 // if value === "+" and if value === work
 //THE LEAST DRY THING EVERRRRR To-do: fix this part
-function increase(clicked_id){
-	if (clicked_id === "workIncrease") {
-		var value = parseInt(worksession_length.value, 10);
-		value = isNaN(value) ? 0 : value;
-		value++;
-		worksession_length.value = value;
-		console.log("Work time is now " + value + " minutes");
-		document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-	} 
-	if (clicked_id === "breakIncrease") {
-		var value = parseInt(break_length.value, 10);
-		value = isNaN(value) ? 0 : value;
-		value++;
-		break_length.value = value;
-		console.log("Break time is now " + value + " minutes");
-		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-	}
-}
-
-function decrease(clicked_id) {
-	if (clicked_id === "workDecrease") {
-			var value = parseInt(worksession_length.value, 10);
-		if (value > 1) {
-			value = isNaN(value) ? 0 : value;
-			value--;
-			worksession_length.value =  value;
-			console.log("Work time is now " + value + " minutes");
-				if (value > 1 ){
-					document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-				} else {
-					document.getElementById("clockTime").innerHTML = value + ":00 minute";
-				}
-		}
-	}
-	if (clicked_id === "breakDecrease") {
-		var value = parseInt(break_length.value, 10);
-		if (value > 1) {
-			value = isNaN(value) ? 0 : value;
-			value--;
-			break_length.value =  value;
-			console.log("Break time is now " + value + " minutes");
-				if (value > 1 ){
-					document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-				} else {
-					document.getElementById("breakTime").innerHTML = value + ":00 minute";
-				}
-		}
-	}
-}
-
-//On button submit, disable all inputs
-function disableInputs(){
-	var elems = document.getElementsByName('sessionButton');
-	var len = elems.length;
-
-	for (var i = 0; i < len; i++) {
-    	elems[i].disabled = true;
-	}
-}
-
-
-// Time to tell the time in seconds!
-// function secondsToHms(d) {
-// d = Number(d);
-// var h = Math.floor(d / 3600);
-// var m = Math.floor(d % 3600 / 60);
-// var s = Math.floor(d % 3600 % 60);
-// return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); }
-
-
-// function timeFormat(t) {
-//     var seconds = Math.floor( (t/1000) % 60 );
-//     var minutes = Math.floor( (t/1000/60) % 60 );
-//     var milliseconds = t;
-
-//     return {
-//         minutes: minutes,
-//         seconds: seconds,
-//         milliseconds: milliseconds
-//     }
+// function increase(clicked_id){
+// 	if (clicked_id === "workIncrease") {
+// 		var value = parseInt(workTime, 10);
+// 		value = isNaN(value) ? 0 : value;
+// 		value++;
+// 		workTime = value;
+// 		console.log("Work time is now " + value + " minutes");
+// 		document.getElementById("timerDisplay").innerHTML = value + ":00";
+// 	} 
+// 	if (clicked_id === "breakIncrease") {
+// 		var value = parseInt(break_length.value, 10);
+// 		value = isNaN(value) ? 0 : value;
+// 		value++;
+// 		break_length.value = value;
+// 		console.log("Break time is now " + value + " minutes");
+// 		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+// 	}
 // }
 
-//button text swaps when pressed
-//But start doesn't control stop, why do this.
-// function swapText() {
-//     if (startStop.value === "Started") {
-//     	startStop.value = "Stopped";
-//     	document.getElementById("start-stop").innerHTML = "Stopped";
-//     }
-//     else {
-//     	startStop.value = "Started";
-//     	document.getElementById("start-stop").innerHTML = "RAWR";
-//     }
+// function decrease(clicked_id) {
+// 	if (clicked_id === "workDecrease") {
+// 			var value = parseInt(worksession_length.value, 10);
+// 		if (value > 1) {
+// 			value = isNaN(value) ? 0 : value;
+// 			value--;
+// 			worksession_length.value =  value;
+// 			console.log("Work time is now " + value + " minutes");
+// 				if (value > 1 ){
+// 					document.getElementById("clockTime").innerHTML = value + ":00 minutes";
+// 				} else {
+// 					document.getElementById("clockTime").innerHTML = value + ":00 minute";
+// 				}
+// 		}
+// 	}
+// 	if (clicked_id === "breakDecrease") {
+// 		var value = parseInt(break_length.value, 10);
+// 		if (value > 1) {
+// 			value = isNaN(value) ? 0 : value;
+// 			value--;
+// 			break_length.value =  value;
+// 			console.log("Break time is now " + value + " minutes");
+// 				if (value > 1 ){
+// 					document.getElementById("breakTime").innerHTML = value + ":00 minutes";
+// 				} else {
+// 					document.getElementById("breakTime").innerHTML = value + ":00 minute";
+// 				}
+// 		}
+// 	}
+// }
+
+//On button submit, disable all inputs
+// function disableInputs(){
+// 	var elems = document.getElementsByName('sessionButton');
+// 	var len = elems.length;
+
+// 	for (var i = 0; i < len; i++) {
+//     	elems[i].disabled = true;
+// 	}
 // }
