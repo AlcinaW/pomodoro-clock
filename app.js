@@ -1,10 +1,12 @@
 var myTime; 
+//sets current work time on page to 25 minutes
 var workTime = document.getElementById('workTime').innerHTML = 25;
 console.log(workTime);
-
+//sets break time on page to 5 minutes
 var breakTime = document.getElementById('breakTime').innerHTML = 5;
 console.log(breakTime);
 
+//calculates seconds
 var remainingSeconds = workTime * 60;
 
 document.getElementById("timerDisplay").innerHTML = workTime;
@@ -32,11 +34,11 @@ function resetFunc() {
   startWorkCountDown();
 }
 
-
+// changes seconds number to look like time
 function displayCountDown(remainingTime) {
 	var minutes = Math.floor(remainingTime / 60); 
 	var seconds = remainingTime % 60; 
-	// console.log(remainingTime);
+	console.log(remainingTime);
 	console.log(minutes + ":" + seconds);
 
 	if (remainingTime % 60 >= 10) {
@@ -49,7 +51,6 @@ function displayCountDown(remainingTime) {
 function timerFunc(tomato) {
 	var remainingTime = remainingSeconds;
 	//setTimeOut callback
-	//pretty sure this an anonymous function, maybe
 	myTime = setTimeout(function() {
 		displayCountDown(remainingTime);
 		if (remainingTime >= 0) {
@@ -63,6 +64,7 @@ function timerFunc(tomato) {
 	}, 1000); //delay
 }
 
+//callback for breaktime!
 var callback = function() {
   console.log('callback yoo');
   document.getElementById('timerText').innerHTML = "Break time!";
@@ -74,7 +76,7 @@ var callback = function() {
 var callbackRest = function() {
   clearInterval(myTime);
   console.log('callbackRest');
-  document.getElementById('timerText').innerHTML = "Start";
+  document.getElementById('timerText').innerHTML = "Work time~";
   remainingSeconds = workTime * 60;
   //controls Start button
   document.getElementById("start").disabled = false;
@@ -82,38 +84,10 @@ var callbackRest = function() {
   return ( startWorkCountDown() );
 };
 
-
 // controls buttons to increase and decrease inputs 
 //updates numbers as you go
-// function increaseWork() {
-// 	workTime++;
-//   	document.getElementById('workTime').innerHTML = workTime;
-//   	remainingSeconds = workTime * 60;
-// }
-
-// function increaseBreak() {
-// 	breakTime++;
-//   	document.getElementById('breakTime').innerHTML = breakTime;
-// }
-
-// function decreaseWork() {
-// 	if (workTime > 1) {
-// 		workTime = isNaN(workTime) ? 0 : workTime;
-// 		workTime--;
-// 		document.getElementById('workTime').innerHTML = workTime;
-// 		remainingSeconds = workTime * 60;
-// 	}
-// }
-
-// function decreaseBreak() {
-//   if (breakTime > 1) {
-// 	breakTime = isNaN(breakTime) ? 0 : breakTime;
-// 	breakTime--;
-// 	document.getElementById('breakTime').innerHTML = breakTime;
-//   }
-// }
-
-
+//controls all buttons. When this.is is send, checks for matches, then if statement
+//To-do: addEventListener on JS side instead?
 function buttonControl(clicked_id){ 
 	if (clicked_id === "workIncrease") { 
 		workTime++;
@@ -124,10 +98,10 @@ function buttonControl(clicked_id){
 	if (clicked_id === "breakIncrease") { 
   		breakTime++;
   		document.getElementById('breakTime').innerHTML = breakTime;
-  		console.log("Work time is now " + breakTime + " minutes");
+  		console.log("Break time is now " + breakTime + " minutes");
 	}
 	if (clicked_id === "workDecrease") { 
-		if (workTime > 1) {
+		if (workTime > 1) { //min time is 1 minute
 			workTime = isNaN(workTime) ? 0 : workTime;
 			workTime--;
 			document.getElementById('workTime').innerHTML = workTime;
@@ -136,11 +110,11 @@ function buttonControl(clicked_id){
 		}
 	}
 	if (clicked_id === "breakDecrease") { 
-	  if (breakTime > 1) {
+	  if (breakTime > 1) { //min time is 1 minute
 		breakTime = isNaN(breakTime) ? 0 : breakTime;
 		breakTime--;
 		document.getElementById('breakTime').innerHTML = breakTime;
-		console.log("Work time is now " + breakTime + " minutes");
+		console.log("Break time is now " + breakTime + " minutes");
 	  }
 	}
 }
