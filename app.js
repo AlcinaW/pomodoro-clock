@@ -17,6 +17,9 @@ var count = 1;
 var countDown = 60 * worksession_length.value; // minutes number convert to seconds
 console.log(countDown);
 
+var countDownTwo = 60 * break_session.value;
+console.log(countDownTwo);
+
 var myTime;
 // starts counting down by the second when Start button is pressed
 function countDownFunc(){
@@ -38,9 +41,6 @@ function changeNumFunc(){
 	if (countDown <= 0) {
 		clearInterval(myTime);
 	} 
-	//if (countDown == 0) {
-		// switch to break time
-	//}
 }
 
 //function that defines break time
@@ -148,38 +148,3 @@ function disableInputs(){
     	elems[i].disabled = true;
 	}
 }
-
-
-// Time to tell the time in seconds!
-// function secondsToHms(d) {
-// d = Number(d);
-// var h = Math.floor(d / 3600);
-// var m = Math.floor(d % 3600 / 60);
-// var s = Math.floor(d % 3600 % 60);
-// return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); }
-
-
-// function timeFormat(t) {
-//     var seconds = Math.floor( (t/1000) % 60 );
-//     var minutes = Math.floor( (t/1000/60) % 60 );
-//     var milliseconds = t;
-
-//     return {
-//         minutes: minutes,
-//         seconds: seconds,
-//         milliseconds: milliseconds
-//     }
-// }
-
-//button text swaps when pressed
-//But start doesn't control stop, why do this.
-// function swapText() {
-//     if (startStop.value === "Started") {
-//     	startStop.value = "Stopped";
-//     	document.getElementById("start-stop").innerHTML = "Stopped";
-//     }
-//     else {
-//     	startStop.value = "Started";
-//     	document.getElementById("start-stop").innerHTML = "RAWR";
-//     }
-// }
