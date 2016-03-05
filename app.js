@@ -78,34 +78,72 @@ var callbackRest = function() {
   remainingSeconds = workTime * 60;
   //controls Start button
   document.getElementById("start").disabled = false;
+  //go back to work time? THIS IS NEW
+  return ( startWorkCountDown() );
 };
 
-//how to flip back to work time after?
 
 // controls buttons to increase and decrease inputs 
 //updates numbers as you go
-function increaseWork() {
-  document.getElementById('workTime').innerHTML = ++workTime;
-  remainingSeconds = workTime * 60;
-}
+// function increaseWork() {
+// 	workTime++;
+//   	document.getElementById('workTime').innerHTML = workTime;
+//   	remainingSeconds = workTime * 60;
+// }
 
-function increaseBreak() {
-  document.getElementById('breakTime').innerHTML = ++breakTime;
-}
+// function increaseBreak() {
+// 	breakTime++;
+//   	document.getElementById('breakTime').innerHTML = breakTime;
+// }
 
-function decreaseWork() {
-  if (workTime >= 1) {
-    document.getElementById('workTime').innerHTML = --workTime;
-    remainingSeconds = workTime * 60;
-  }
-}
+// function decreaseWork() {
+// 	if (workTime > 1) {
+// 		workTime = isNaN(workTime) ? 0 : workTime;
+// 		workTime--;
+// 		document.getElementById('workTime').innerHTML = workTime;
+// 		remainingSeconds = workTime * 60;
+// 	}
+// }
 
-function decreaseBreak() {
-  if (breakTime >= 1) {
-    document.getElementById('breakTime').innerHTML = --breakTime;
-  }
-}
+// function decreaseBreak() {
+//   if (breakTime > 1) {
+// 	breakTime = isNaN(breakTime) ? 0 : breakTime;
+// 	breakTime--;
+// 	document.getElementById('breakTime').innerHTML = breakTime;
+//   }
+// }
 
+
+function buttonControl(clicked_id){ 
+	if (clicked_id === "workIncrease") { 
+		workTime++;
+	  	document.getElementById('workTime').innerHTML = workTime;
+	  	remainingSeconds = workTime * 60;
+	  	console.log("Work time is now " + workTime + " minutes");
+	}
+	if (clicked_id === "breakIncrease") { 
+  		breakTime++;
+  		document.getElementById('breakTime').innerHTML = breakTime;
+  		console.log("Work time is now " + breakTime + " minutes");
+	}
+	if (clicked_id === "workDecrease") { 
+		if (workTime > 1) {
+			workTime = isNaN(workTime) ? 0 : workTime;
+			workTime--;
+			document.getElementById('workTime').innerHTML = workTime;
+			remainingSeconds = workTime * 60;
+			console.log("Work time is now " + workTime + " minutes");
+		}
+	}
+	if (clicked_id === "breakDecrease") { 
+	  if (breakTime > 1) {
+		breakTime = isNaN(breakTime) ? 0 : breakTime;
+		breakTime--;
+		document.getElementById('breakTime').innerHTML = breakTime;
+		console.log("Work time is now " + breakTime + " minutes");
+	  }
+	}
+}
 
 
 // up and down for work and break session adjustment 
