@@ -1,4 +1,4 @@
-var myTime; //myInterval
+var myTime; 
 var workTime = document.getElementById('workTime').innerHTML = 25;
 console.log(workTime);
 
@@ -25,8 +25,8 @@ function pauseCountDown(){
 }
 
 // controls reset 
-function resetTime() {
-  clearInterval(myInterval);
+function resetFunc() {
+  clearInterval(myTime);
   remainingSeconds = workTime * 60;
   //calls start work function
   startWorkCountDown();
@@ -72,7 +72,7 @@ var callback = function() {
 };
 
 var callbackRest = function() {
-  clearInterval(myInterval);
+  clearInterval(myTime);
   console.log('callbackRest');
   document.getElementById('timerText').innerHTML = "Start";
   remainingSeconds = workTime * 60;
