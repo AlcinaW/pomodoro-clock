@@ -6,7 +6,7 @@
 
 svg {
   transform: rotate(270deg);
-  margin: auto;
+  /* margin: auto; */
 }
 
 circle {
@@ -57,12 +57,13 @@ h1, h2, p {
 
 h1 {
     font-size: 5em;
+    margin: .3em 0;
 }
 
 h2 {
     font-weight: 400;
     letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+    /* margin: 2em 0 1em; */
 }
 
 .project-title {
@@ -80,8 +81,6 @@ h2 {
 }
 
 .pure-g {
-    padding-top: .5em;
-    padding-bottom: .5em;
 }
 
 /* BUTTONS */ 
@@ -146,7 +145,7 @@ h2 {
     font-weight: bold;
     color: white;
     border: 3px solid white;
-    padding: .5em;
+    /* padding: .5em; */
     font-weight: 100;
     border-radius: 5px;
 }
@@ -217,7 +216,7 @@ h2 {
     }
 
     .splash-head {
-        font-size: 250%;
+        font-size: 180%;
     }
 
 
@@ -236,6 +235,6 @@ h2 {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 180%;
     }
 }
