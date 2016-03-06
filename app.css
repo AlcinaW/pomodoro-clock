@@ -1,3 +1,15 @@
+/* SVG */
+.svg.radial-progress {
+  position: relative;
+  display: inline-block;
+}
+
+circle {
+  stroke-width: 1em;
+  fill: transparent;
+  stroke: #DEDEDE;
+}
+
 /* basic styles */
 * {
     font-family: 'Comfortaa', cursive;
