@@ -11,8 +11,47 @@ var remainingSeconds = workTime * 60;
 
 document.getElementById("timerDisplay").innerHTML = workTime;
 
+//SVG start
+
+function svgProgress() {
+  var radius = 10, // set the radius of the circle
+      circumference = 2 * radius * Math.PI; 
+  
+  var els = document.querySelectorAll('circle');
+  Array.prototype.forEach.call(els, function (el) {
+    el.setAttribute('stroke-dasharray', circumference + 'em');
+    el.setAttribute('r', radius + 'em');
+  });
+  
+  document.querySelector('.radial-progress-center').setAttribute('r', (radius - 0.01 + 'em'));
+  
+  var currentCount = 1, 
+      maxCount = 20;
+  
+  var intervalId = setInterval(function () { 
+    if (currentCount > maxCount) {
+      clearInterval(intervalId);
+      return;
+    }
+    var offset = -(circumference / maxCount) * currentCount + 'em';
+    console.log(currentCount, offset);
+
+    document.querySelector('.radial-progress-cover').setAttribute('stroke-dashoffset', offset);
+        
+    currentCount++;
+  }, 1000);
+}; 
+
+
+
+
+
+
 //controls START button
 function startWorkCountDown(){
+	//lets you see in tab title what status of timer is
+	document.title = "Working!";
+	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 	//callback that tells next function to run
 	timerFunc(callback);
@@ -20,6 +59,9 @@ function startWorkCountDown(){
 
 // controls pause 
 function pauseCountDown(){ 
+	//lets you see in tab title what status of timer is
+	document.title = "Paused~";
+
 	clearInterval(myTime);
 	console.log('paused');
 	//re-enable Start button when pressed
@@ -66,22 +108,24 @@ function timerFunc(tomato) {
 
 //callback for breaktime!
 var callback = function() {
-  console.log('callback yoo');
-  document.getElementById('timerText').innerHTML = "Break time!";
-  remainingSeconds = breakTime * 60;
-  //yet another callback
-  timerFunc(callbackRest);
+	//lets you see in tab title what status of timer is
+	document.title = "Take a break~";
+  	console.log('callback yoo');
+  	document.getElementById('timerText').innerHTML = "Break time!";
+  	remainingSeconds = breakTime * 60;
+  	//yet another callback
+  	timerFunc(callbackRest);
 };
 
 var callbackRest = function() {
-  clearInterval(myTime);
-  console.log('callbackRest');
-  document.getElementById('timerText').innerHTML = "Work time~";
-  remainingSeconds = workTime * 60;
-  //controls Start button
-  document.getElementById("start").disabled = false;
-  //go back to work time? THIS IS NEW
-  return ( startWorkCountDown() );
+  	clearInterval(myTime);
+  	console.log('callbackRest');
+  	document.getElementById('timerText').innerHTML = "Work time~";
+  	remainingSeconds = workTime * 60;
+  	//controls Start button
+  	document.getElementById("start").disabled = false;
+  	//go back to work time? THIS IS NEW
+  	return ( startWorkCountDown() );
 };
 
 // controls buttons to increase and decrease inputs 
@@ -118,69 +162,3 @@ function buttonControl(clicked_id){
 	  }
 	}
 }
-
-
-// up and down for work and break session adjustment 
-//To-do: read BOTH + and -, go up or down depending on which is clicked 
-//One function to rule them all?
-// if value === "+" and if value === work
-//THE LEAST DRY THING EVERRRRR To-do: fix this part
-// function increase(clicked_id){
-// 	if (clicked_id === "workIncrease") {
-// 		var value = parseInt(workTime, 10);
-// 		value = isNaN(value) ? 0 : value;
-// 		value++;
-// 		workTime = value;
-// 		console.log("Work time is now " + value + " minutes");
-// 		document.getElementById("timerDisplay").innerHTML = value + ":00";
-// 	} 
-// 	if (clicked_id === "breakIncrease") {
-// 		var value = parseInt(break_length.value, 10);
-// 		value = isNaN(value) ? 0 : value;
-// 		value++;
-// 		break_length.value = value;
-// 		console.log("Break time is now " + value + " minutes");
-// 		document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-// 	}
-// }
-
-// function decrease(clicked_id) {
-// 	if (clicked_id === "workDecrease") {
-// 			var value = parseInt(worksession_length.value, 10);
-// 		if (value > 1) {
-// 			value = isNaN(value) ? 0 : value;
-// 			value--;
-// 			worksession_length.value =  value;
-// 			console.log("Work time is now " + value + " minutes");
-// 				if (value > 1 ){
-// 					document.getElementById("clockTime").innerHTML = value + ":00 minutes";
-// 				} else {
-// 					document.getElementById("clockTime").innerHTML = value + ":00 minute";
-// 				}
-// 		}
-// 	}
-// 	if (clicked_id === "breakDecrease") {
-// 		var value = parseInt(break_length.value, 10);
-// 		if (value > 1) {
-// 			value = isNaN(value) ? 0 : value;
-// 			value--;
-// 			break_length.value =  value;
-// 			console.log("Break time is now " + value + " minutes");
-// 				if (value > 1 ){
-// 					document.getElementById("breakTime").innerHTML = value + ":00 minutes";
-// 				} else {
-// 					document.getElementById("breakTime").innerHTML = value + ":00 minute";
-// 				}
-// 		}
-// 	}
-// }
-
-//On button submit, disable all inputs
-// function disableInputs(){
-// 	var elems = document.getElementsByName('sessionButton');
-// 	var len = elems.length;
-
-// 	for (var i = 0; i < len; i++) {
-//     	elems[i].disabled = true;
-// 	}
-// }
