@@ -13,10 +13,10 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 
 //SVG start
 
-function svgProgress() {
-  var radius = 10, // set the radius of the circle
-      circumference = 2 * radius * Math.PI; 
-  
+var player = function() {
+	var radius = 10, // set the radius of the circle
+    circumference = 2 * radius * Math.PI; 
+
   var els = document.querySelectorAll('circle');
   Array.prototype.forEach.call(els, function (el) {
     el.setAttribute('stroke-dasharray', circumference + 'em');
@@ -26,7 +26,7 @@ function svgProgress() {
   document.querySelector('.radial-progress-center').setAttribute('r', (radius - 0.01 + 'em'));
   
   var currentCount = 1, 
-      maxCount = 20;
+      maxCount = remainingSeconds;
   
   var intervalId = setInterval(function () { 
     if (currentCount > maxCount) {
