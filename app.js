@@ -15,48 +15,36 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 
 
 //sets circle size on load 
-window.onload = function() {
-	var radius = 10, // set the radius of the circle
-    circumference = 2 * radius * Math.PI; 
+// window.onload = function() {
+// 	var radius = 10, // set the radius of the circle
+//     circumference = 2 * radius * Math.PI; 
   
-  	var els = document.querySelectorAll('circle');
-  	Array.prototype.forEach.call(els, function (el) {
-    el.setAttribute('stroke-dasharray', circumference + 'em');
-    el.setAttribute('r', radius + 'em');
-	});
-}; 
+//   	var els = document.querySelectorAll('circle');
+//   	Array.prototype.forEach.call(els, function (el) {
+//     el.setAttribute('stroke-dasharray', circumference + 'em');
+//     el.setAttribute('r', radius + 'em');
+// 	});
+// }; 
 
 
-// currently on button press
-function player() {
-	var radius = 10, // set the radius of the circle
-    circumference = 2 * radius * Math.PI; 
+window.onload = function onLoad() {
+    var circle = new ProgressBar.Circle('#progress', {
+        duration: 1,
+        easing: 'easeInOut'
+    });
 
-  	var els = document.querySelectorAll('circle');
-  	Array.prototype.forEach.call(els, function (el) {
-    el.setAttribute('stroke-dasharray', circumference + 'em');
-    el.setAttribute('r', radius + 'em');
-  	});
-  
-  	document.querySelector('.radial-progress-center').setAttribute('r', (radius - 0.01 + 'em'));
-  
-  	var currentCount = 1, 
-      	maxCount = remainingSeconds;
-  
- 	var intervalId = setInterval(function () { 
-    if (currentCount > maxCount) {
-      	clearInterval(intervalId);
-      	return;
-    }
-    var offset = -(circumference / maxCount) * currentCount + 'em';
-    console.log(currentCount, offset);
+    circle.animate(1);
+};
 
-    document.querySelector('.radial-progress-cover').setAttribute('stroke-dashoffset', offset);
-        
-    currentCount++;
-  }, 1000);
-}; 
+window.onload = function onLoad() {
+    var circle = new ProgressBar.Circle('#progress', {
+        color: '#FCB03C',
+        duration: 3000,
+        easing: 'easeInOut'
+    });
 
+    circle.animate(1);
+};
 
 //controls START button
 function startWorkCountDown(){
@@ -64,35 +52,6 @@ function startWorkCountDown(){
 	document.title = "Working!";
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
-
-	var radius = 10, // set the radius of the circle
-    circumference = 2 * radius * Math.PI; 
-
-  	var els = document.querySelectorAll('circle');
-  	Array.prototype.forEach.call(els, function (el) {
-    el.setAttribute('stroke-dasharray', circumference + 'em');
-    el.setAttribute('r', radius + 'em');
-  	});
-  
-  	document.querySelector('.radial-progress-center').setAttribute('r', (radius - 0.01 + 'em'));
-  
-  	var currentCount = 1, 
-      	maxCount = remainingSeconds;
-  
- 	var intervalId = setInterval(function () { 
-    if (currentCount > maxCount) {
-      	clearInterval(intervalId);
-      	return;
-    }
-    var offset = -(circumference / maxCount) * currentCount + 'em';
-    console.log(currentCount, offset);
-
-    document.querySelector('.radial-progress-cover').setAttribute('stroke-dashoffset', offset);
-        
-    currentCount++;
-  }, 1000);
-
-
 
 	//callback that tells next function to run
 	timerFunc(callback);
