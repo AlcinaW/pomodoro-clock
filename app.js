@@ -13,6 +13,7 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 
 //SVG start
 
+
 //sets circle size on load 
 window.onload = function() {
 	var radius = 10, // set the radius of the circle
@@ -27,7 +28,7 @@ window.onload = function() {
 
 
 // currently on button press
-var player = function() {
+function player() {
 	var radius = 10, // set the radius of the circle
     circumference = 2 * radius * Math.PI; 
 
@@ -63,6 +64,36 @@ function startWorkCountDown(){
 	document.title = "Working!";
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
+
+	var radius = 10, // set the radius of the circle
+    circumference = 2 * radius * Math.PI; 
+
+  	var els = document.querySelectorAll('circle');
+  	Array.prototype.forEach.call(els, function (el) {
+    el.setAttribute('stroke-dasharray', circumference + 'em');
+    el.setAttribute('r', radius + 'em');
+  	});
+  
+  	document.querySelector('.radial-progress-center').setAttribute('r', (radius - 0.01 + 'em'));
+  
+  	var currentCount = 1, 
+      	maxCount = remainingSeconds;
+  
+ 	var intervalId = setInterval(function () { 
+    if (currentCount > maxCount) {
+      	clearInterval(intervalId);
+      	return;
+    }
+    var offset = -(circumference / maxCount) * currentCount + 'em';
+    console.log(currentCount, offset);
+
+    document.querySelector('.radial-progress-cover').setAttribute('stroke-dashoffset', offset);
+        
+    currentCount++;
+  }, 1000);
+
+
+
 	//callback that tells next function to run
 	timerFunc(callback);
 }
@@ -73,9 +104,11 @@ function pauseCountDown(){
 	document.title = "Paused~";
 
 	clearInterval(myTime);
+
 	console.log('paused');
 	//re-enable Start button when pressed
 	document.getElementById("start").disabled = false;
+
 }
 
 // controls reset 
