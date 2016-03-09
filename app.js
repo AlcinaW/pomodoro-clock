@@ -12,6 +12,14 @@ var remainingSeconds = workTime * 60;
 document.getElementById("timerDisplay").innerHTML = workTime;
 
 
+// SVG
+//control the height of the id="blocker" SVG with how much time
+//height reduces as counds down, height is currently 400
+//on windowload, set height to 400
+//on startbutton press, calculate seconds, math.floor percentage
+window.onload = document.getElementById('blocker').height.baseVal.value = 400;
+
+
 
 //controls START button
 function startWorkCountDown(){
