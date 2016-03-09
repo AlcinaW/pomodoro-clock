@@ -1,54 +1,20 @@
-/* SVG 
-.svg.radial-progress {
-  position: relative;
-  display: inline-block;
+/* SVG */
+svg .ring {
+    fill: none;
+    stroke: #8f60aa;
+    stroke-width: 10;
+    stroke-aligment: outer;
 }
-
-svg {
-  transform: rotate(270deg);
+svg .filler {
+    fill: #8f60aa;
+    stroke: #c5add3;
+    stroke-width: 5;
+    stroke-aligment: inner;
 }
-
-circle {
-  stroke-width: 2em;
-  fill: transparent;
-  transform: rotate(0.1deg); // to fix Firefox
+svg .blocker {
+    /* change to #c5add3 */
+    fill: #fff;
 }
-
-.radial-progress-background {
-  stroke: orange;
-}
-
-.radial-progress-cover {
-  stroke: #DEDEDE;
-  stroke-width: 2.01em;
-    border: 12px solid red;
-}
-
-.radial-progress-center {
-  fill: #c5add3;
-}
-
-.radial-fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-
-
-
-.progress {
-    height: 300px;
-}
-.progress > svg {
-    height: 100%;
-    display: block;
-}
-
-
-
-
 
 /* basic styles */
 * {

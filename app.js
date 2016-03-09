@@ -11,40 +11,7 @@ var remainingSeconds = workTime * 60;
 
 document.getElementById("timerDisplay").innerHTML = workTime;
 
-//SVG start
 
-
-//sets circle size on load 
-// window.onload = function() {
-// 	var radius = 10, // set the radius of the circle
-//     circumference = 2 * radius * Math.PI; 
-  
-//   	var els = document.querySelectorAll('circle');
-//   	Array.prototype.forEach.call(els, function (el) {
-//     el.setAttribute('stroke-dasharray', circumference + 'em');
-//     el.setAttribute('r', radius + 'em');
-// 	});
-// }; 
-
-
-window.onload = function onLoad() {
-    var circle = new ProgressBar.Circle('#progress', {
-        duration: 1,
-        easing: 'easeInOut'
-    });
-
-    circle.animate(1);
-};
-
-window.onload = function onLoad() {
-    var circle = new ProgressBar.Circle('#progress', {
-        color: '#FCB03C',
-        duration: 3000,
-        easing: 'easeInOut'
-    });
-
-    circle.animate(1);
-};
 
 //controls START button
 function startWorkCountDown(){

@@ -29,16 +29,39 @@
     	<h1 class="project-title">Pomodoro Timer</h1>
 
 
-<!-- <div class="svg radial-progress">
-	<svg height="24em" width="24em">
-	<circle class="radial-progress-background" r="" cx="11.5em" cy="11.5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0em"></circle>
-	<circle class="radial-progress-cover" r="" cx="11.5em" cy="11.5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0"></circle>
-	<circle class="radial-progress-center" r="" cx="11.5em" cy="11.5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0em"></circle>
-	</svg>
-</div> -->
+  <!-- <div class="svg radial-progress">
+    <svg height="10em" width="10em">
+      <circle class="radial-progress-background" r="" cx="5em" cy="5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0em"></circle>
+      <circle class="radial-progress-cover" r="" cx="5em" cy="5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0"></circle>
+      <circle class="radial-progress-center" r="" cx="5em" cy="5em" fill="transparent" stroke-dasharray="0em" stroke-dashoffset="0em"></circle>
+    </svg>
+  </div> 
+
+  <div class="progress" id="progress"></div>-->
+
+  <svg height="500" width="500">
+    <!-- <rect x="50" y="50" width="400" height="400" class="blocker"/> -->
+    
+    <!-- circle is filled -->
+    <circle x="0" cx="250" cy="250" r="200" class="filler" />
+    <!-- change to background colour -->
+    <rect x="50" y="50" width="400" height="400" class="blocker"/>
+
+	<!-- OUTSIDE ring -->
+  	<circle x="0" cx="250" cy="250" r="200" class="ring" />
+  </svg>
 
 
-<div class="progress" id="progress"></div>
+  <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="cut-off-bottom">
+      <rect x="0" y="0" width="200" height="100" />
+    </clipPath>
+  </defs>
+
+  <circle cx="100" cy="100" r="100" clip-path="url(#cut-off-bottom)" />
+</svg>-->
+
 
 
         <h2 class="splash-head"><div id="display"><span id="timerDisplay"></span> minutes</div></h2>
