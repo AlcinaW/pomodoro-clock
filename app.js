@@ -18,7 +18,8 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 //on windowload, set height to 400
 //on startbutton press, calculate seconds, math.floor percentage
 window.onload = document.getElementById('blocker').height.baseVal.value = 400;
-
+// count down, make height smaller, convert to percentage of the height 0f 400?
+// 400 = not started, 200 = 50%, 0 = 100%
 
 
 //controls START button
@@ -75,6 +76,9 @@ function timerFunc(tomato) {
 		if (remainingTime >= 0) {
 			// if greater than 0, keep doing down by one
 			remainingSeconds--;
+
+		//SVG stuff here?
+		
 			timerFunc(tomato);
 		} else {
 			clearInterval();
