@@ -27,6 +27,19 @@
 <div class="splash-container">
     <div class="splash">
     	<h1 class="project-title">Pomodoro Timer</h1>
+
+    <!-- SVG progress display, set display timer on top after -->
+	<svg height="500" width="500">
+		<!-- <rect x="50" y="50" width="400" height="400" class="blocker"/> -->
+		<!-- circle is filled -->
+		<circle x="0" cx="250" cy="250" r="200" class="filler" />
+		<!-- change to background colour, change height? -->
+		<rect x="50" y="50" width="400" height="" class="blocker" id="blocker" />
+
+		<!-- OUTSIDE ring -->
+		<circle x="0" cx="250" cy="250" r="200" class="ring" />
+	</svg>
+
         <h2 class="splash-head"><div id="display"><span id="timerDisplay"></span> minutes</div></h2>
         <p><span id="timerText"></span></p>
 	       	<div class="pure-g">
@@ -66,7 +79,7 @@
 
 	</div>
 </div>
-
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/0.9.0/progressbar.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 
 </body>
