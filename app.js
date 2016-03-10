@@ -11,7 +11,6 @@ var remainingSeconds = workTime * 60;
 
 document.getElementById("timerDisplay").innerHTML = workTime;
 
-
 // SVG
 //control the height of the id="blocker" SVG with how much time
 //height reduces as counds down, height is currently 400
@@ -59,7 +58,7 @@ function resetFunc() {
   clearInterval(myTime);
   remainingSeconds = workTime * 60;
   //SVG reset height
-  overlay.value = 400;
+  overlay.value = 390;
   //calls start work function
   startWorkCountDown();
 }
@@ -104,7 +103,6 @@ var callback = function() {
 	//lets you see in tab title what status of timer is
 	document.title = "Take a break~";
   	console.log('callback yoo');
-  	document.getElementById('timerText').innerHTML = "Break time!";
   	//change text in SVG
 	document.getElementById('svgText').textContent = "Break time!";
 	//percentage of time remaining to control SVG 
