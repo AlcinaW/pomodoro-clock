@@ -33,7 +33,7 @@ svg #svgText {
 }
 body {
     color: #7f8c8d;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 h1, h2, p {
@@ -48,22 +48,34 @@ h1 {
 h2 {
     font-weight: 400;
     letter-spacing: 0.1em;
-    /* margin: 2em 0 1em; */
+}
+
+footer {
+    padding-top: 100px;
 }
 
 .project-title {
-    line-height: 35px;
+    padding-top: 5px;
 }
 
 #workTime, #breakTime, #workIncrease, #workDecrease, #breakIncrease, #breakDecrease {
-    color: #8f60aa;
+    color: #6d0a54;
+}
+
+#workTime, #breakTime {
+    font-size: 20px;
+}
+
+a {
+    color: #6d0a54;
+    text-decoration: none;
 }
 
 /* BUTTONS */ 
 .pure-button {
     font-family: 'Comfortaa', cursive;
     background-color: #c5add3;
-    border: .5px solid #8f60aa;
+    border: .5px solid #6d0a54;
 }
 .pure-button-primary {
     background-color: none;
@@ -117,7 +129,7 @@ h2 {
     opacity: 0.8;
 }
 .splash-input {
-    font-size: 95%;
+    font-size: 110%;
     letter-spacing: 0.05em;
     opacity: 0.8;
     color: #6d0a54;
