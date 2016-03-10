@@ -1,3 +1,28 @@
+/* SVG */
+svg .ring {
+    fill: none;
+    stroke: #8f60aa;
+    stroke-width: 10;
+    stroke-aligment: outer;
+}
+svg .filler {
+    fill: #8f60aa;
+    stroke: #c5add3;
+    stroke-width: 20;
+    stroke-aligment: inner;
+}
+svg #overlay {
+    /* change to #c5add3 */
+    fill: #c5add3;
+}
+
+svg #svgText {
+    text-anchor: middle;
+    alignment-baseline: central; 
+    font-size: 4em;
+    fill: #fff;
+}
+
 /* basic styles */
 * {
     font-family: 'Comfortaa', cursive;
@@ -17,38 +42,28 @@ h1, h2, p {
 
 h1 {
     font-size: 5em;
+    margin: .3em 0;
 }
 
 h2 {
     font-weight: 400;
     letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+    /* margin: 2em 0 1em; */
 }
 
 .project-title {
-    line-height: 1em;
+    line-height: 35px;
 }
 
 #workTime, #breakTime, #workIncrease, #workDecrease, #breakIncrease, #breakDecrease {
-    color: #6d0a54;
-}
-
-/* IMAGES */
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-.pure-g {
-    padding-top: .5em;
-    padding-bottom: .5em;
+    color: #8f60aa;
 }
 
 /* BUTTONS */ 
 .pure-button {
     font-family: 'Comfortaa', cursive;
     background-color: #c5add3;
-    border: .5px solid #6d0a54;
+    border: .5px solid #8f60aa;
 }
 .pure-button-primary {
     background-color: none;
@@ -77,21 +92,6 @@ h2 {
     text-align: center;
 }
 
-/*
- * -- SPLASH STYLES --
- * This is the blue top section that appears on the page.
- */
-
-.splash-container {
-    overflow: hidden;
-    /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed !important;
-}
-
 .splash {
     /* absolute center .splash within .splash-container */
     width: 100%;
@@ -105,8 +105,6 @@ h2 {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: 3px solid white;
-    padding: .5em;
     font-weight: 100;
     border-radius: 5px;
 }
@@ -123,20 +121,6 @@ h2 {
     letter-spacing: 0.05em;
     opacity: 0.8;
     color: #6d0a54;
-}
-/*
- * -- CONTENT STYLES --
- * This represents the content area (everything below the blue section)
- */
-.content-wrapper {
-    /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    top: 87%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
-    background: white;
-
 }
 
 /*
@@ -177,7 +161,7 @@ h2 {
     }
 
     .splash-head {
-        font-size: 250%;
+        font-size: 180%;
     }
 
 
@@ -196,6 +180,6 @@ h2 {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 180%;
     }
 }
