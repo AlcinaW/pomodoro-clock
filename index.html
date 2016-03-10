@@ -30,12 +30,13 @@
 
     <!-- SVG progress display, set display timer on top after -->
 	<svg height="500" width="500">
-		<!-- <rect x="50" y="50" width="400" height="400" class="blocker"/> -->
 		<!-- circle is filled -->
 		<circle x="0" cx="250" cy="250" r="200" class="filler" />
-		<!-- change to background colour, change height? -->
-		<rect x="50" y="50" width="400" height="" class="blocker" id="blocker" />
 
+		<!-- OVERLAY -->
+		<rect x="50" y="55" width="400" height="" class="blocker" id="overlay" />
+		<!-- text -->
+		<text x="50%" y="50%" class="svgText" id="svgText"> Hello </text>
 		<!-- OUTSIDE ring -->
 		<circle x="0" cx="250" cy="250" r="200" class="ring" />
 	</svg>

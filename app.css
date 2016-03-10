@@ -11,8 +11,15 @@ svg .filler {
     stroke-width: 5;
     stroke-aligment: inner;
 }
-svg .blocker {
+svg #overlay {
     /* change to #c5add3 */
+    fill: #c5add3;
+}
+
+svg #svgText {
+    text-anchor: middle;
+    alignment-baseline: central; 
+    font-size: 4em;
     fill: #fff;
 }
 
@@ -122,7 +129,7 @@ h2 {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: 3px solid white;
+    /* border: 3px solid white; */
     /* padding: .5em; */
     font-weight: 100;
     border-radius: 5px;
