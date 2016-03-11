@@ -1,0 +1,79 @@
+/* SVG */
+svg .ring {
+    fill: none;
+    stroke: #8f60aa;
+    stroke-width: 10;
+    stroke-aligment: outer;
+}
+svg .filler {
+    fill: #8f60aa;
+    stroke: #c5add3;
+    stroke-width: 20;
+    stroke-aligment: inner;
+}
+svg #overlay {
+    /* change to #c5add3 */
+    fill: #fff;
+}
+
+svg #svgText {
+    text-anchor: middle;
+    alignment-baseline: central; 
+    font-size: 4em;
+    fill: #fff;
+}
+
+/* basic styles */
+body {
+    font-family: 'Comfortaa', cursive;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #c5add3;
+    color: #7f8c8d;
+    font-size: 15px;
+}
+
+h1, h2, p {
+    font-family: 'Comfortaa', cursive;
+    color: #34495e;
+}
+
+footer {
+}
+
+.project-title {
+    padding-top: 5px;
+}
+
+#workTime, #breakTime, #workIncrease, #workDecrease, #breakIncrease, #breakDecrease {
+    color: #6d0a54;
+}
+
+#workTime, #breakTime {
+    font-size: 20px;
+}
+
+a {
+    color: #6d0a54;
+    text-decoration: none;
+}
+.button-start,
+.button-pause,
+.button-reset {
+    border: none;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    border-radius: 5px;
+    font-size: 120%;
+    color: white;
+}
+.button-start {
+    background: #f3a451; 
+}
+.button-pause {
+    background: #7a7384;
+}
+.button-reset {
+    background: rgb(66, 184, 221); 
+}
