@@ -1,10 +1,4 @@
 /* SVG */
-svg {
-    margin-left:auto; 
-    margin-right:auto; 
-    display:block;
-}
-
 svg .ring {
     fill: none;
     stroke: #8f60aa;
@@ -32,6 +26,9 @@ svg #svgText {
 /* basic styles */
 * {
     font-family: 'Comfortaa', cursive;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     background-color: #c5add3;
 }
 body {
@@ -39,7 +36,7 @@ body {
     font-size: 15px;
 }
 
-h1, h2 {
+h1, h2, p {
     color: #34495e;
 }
 
@@ -57,14 +54,6 @@ footer {
     padding-top: 100px;
 }
 
-.center-this {
-    display: block;
-    margin: 0 auto;
-}
-.work-input, .break-input { 
-    display: inline-block;
-
-}
 .project-title {
     padding-top: 5px;
 }
@@ -76,12 +65,6 @@ footer {
 #workTime, #breakTime {
     font-size: 20px;
 }
-#workTime {
-    float: right;
-}
-#breakTime {
-    float: left;
-}
 
 a {
     color: #6d0a54;
@@ -89,16 +72,19 @@ a {
 }
 
 /* BUTTONS */ 
-button {
+.pure-button {
     font-family: 'Comfortaa', cursive;
     background-color: #c5add3;
     border: .5px solid #6d0a54;
 }
+.pure-button-primary {
+    background-color: none;
+}
 .button-start,
 .button-pause,
 .button-reset {
-    text-transform: capitalize;
     border: none;
+    padding: 0.5em 2em;
     border-radius: 5px;
     border-radius: 5px;
     font-size: 120%;
@@ -111,9 +97,101 @@ button {
     background: #7a7384;
 }
 .button-reset {
-    background: #42B8DD; 
+    background: rgb(66, 184, 221); 
 }
 
 .is-center {
     text-align: center;
+}
+
+.splash {
+    /* absolute center .splash within .splash-container */
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-weight: 100;
+    border-radius: 5px;
+}
+
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
+    font-size: 15px;
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+.splash-input {
+    font-size: 110%;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    color: #6d0a54;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 48em) {
+
+    /* We increase the body font size */
+    body {
+        font-size: 16px;
+    }
+    /* We want to give the content area some more padding */
+    .content {
+        padding: 1em;
+    }
+
+    /* We can align the menu header to the left, but float the
+    menu items to the right. */
+    .home-menu {
+        text-align: left;
+    }
+        .home-menu ul {
+            float: right;
+        }
+
+    /* We increase the height of the splash-container */
+/*    .splash-container {
+        height: 500px;
+    }*/
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 180%;
+    }
+
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 180%;
+    }
 }
