@@ -16,21 +16,15 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 //height reduces as counds down, height is currently 400
 //on windowload, set height to 400
 //on startbutton press, calculate seconds, math.floor percentage
-var overlay = document.getElementById('overlay').height.baseVal;
-var overlayHeight;
-window.onload = overlay.value = 390;
-console.log(overlay.value);
+window.onload = document.getElementById('blocker').height.baseVal.value = 400;
 // count down, make height smaller, convert to percentage of the height 0f 400?
 // 400 = not started, 200 = 50%, 0 = 100%
-var per = 0;
-console.log(per);
+
 
 //controls START button
 function startWorkCountDown(){
 	//lets you see in tab title what status of timer is
 	document.title = "Working!";
-	//change text in SVG
-	document.getElementById('svgText').textContent = "Working!";
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
@@ -42,8 +36,6 @@ function startWorkCountDown(){
 function pauseCountDown(){ 
 	//lets you see in tab title what status of timer is
 	document.title = "Paused~";
-	//change text in SVG
-	document.getElementById('svgText').textContent = "Paused~";
 
 	clearInterval(myTime);
 
@@ -57,8 +49,11 @@ function pauseCountDown(){
 function resetFunc() {
   clearInterval(myTime);
   remainingSeconds = workTime * 60;
+<<<<<<< HEAD
   //SVG reset height
   overlay.value = 390;
+=======
+>>>>>>> parent of 864223a... SVG timer text edits
   //calls start work function
   startWorkCountDown();
 }
@@ -69,10 +64,6 @@ function displayCountDown(remainingTime) {
 	var seconds = remainingTime % 60; 
 	console.log(remainingTime);
 	console.log(minutes + ":" + seconds);
-	//percentage of time remaining to control SVG 
-	var per = (remainingTime / (workTime * 60));
-	console.log(per);
-	overlay.value = per * 400;
 
 	if (remainingTime % 60 >= 10) {
 		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
@@ -89,6 +80,8 @@ function timerFunc(tomato) {
 		if (remainingTime >= 0) {
 			// if greater than 0, keep doing down by one
 			remainingSeconds--;
+
+		//SVG stuff here?
 		
 			timerFunc(tomato);
 		} else {
@@ -103,10 +96,14 @@ var callback = function() {
 	//lets you see in tab title what status of timer is
 	document.title = "Take a break~";
   	console.log('callback yoo');
+<<<<<<< HEAD
   	//change text in SVG
 	document.getElementById('svgText').textContent = "Break time!";
 	//percentage of time remaining to control SVG 
 
+=======
+  	document.getElementById('timerText').innerHTML = "Break time!";
+>>>>>>> parent of 864223a... SVG timer text edits
   	remainingSeconds = breakTime * 60;
   	//yet another callback
   	timerFunc(callbackRest);
