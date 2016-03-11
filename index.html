@@ -25,17 +25,17 @@
           <div class="large-4 medium-4 medium-push-2 columns">
             <p class="text-center"><strong>Work Time</strong></p>
               <div class="work-input text-center">
-                <button type="button" onclick="buttonControl(this.id)" id="workDecrease" name="sessionButton" class="button radius">-</button>
+                <button type="button" onclick="buttonControl(this.id)" id="workDecrease" name="sessionButton" class="button radius input-time">-</button>
                   <span id="workTime"></span>
-                <button type="button" onclick="buttonControl(this.id)" id="workIncrease" name="sessionButton" class="button radius">+</button>
+                <button type="button" onclick="buttonControl(this.id)" id="workIncrease" name="sessionButton" class="button radius input-time">+</button>
               </div>
           </div>
           <div class="large-4 medium-4 medium-pull-2 columns">
             <p class="text-center"><strong>Break Time</strong></p>
             <div class="break-input text-center">
-              <button type="button" onclick="buttonControl(this.id)" id="breakDecrease" name="sessionButton" class="button radius">-</button>
+              <button type="button" onclick="buttonControl(this.id)" id="breakDecrease" name="sessionButton" class="button radius input-time">-</button>
                 <span id="breakTime"></span>
-              <button type="button" onclick="buttonControl(this.id)" id="breakIncrease" name="sessionButton" class="button radius">+</button>
+              <button type="button" onclick="buttonControl(this.id)" id="breakIncrease" name="sessionButton" class="button radius input-time">+</button>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
             <!-- circle is filled -->
             <circle x="0" cx="150" cy="150" r="140" class="filler" />
             <!-- OVERLAY -->
-            <rect x="5" y="10" width="300" height="" class="blocker" id="overlay" />
+            <rect x="5" y="15" width="280" height="" class="blocker" id="overlay" />
             <!-- text status -->
             <text x="50%" y="50%" class="svgText" id="svgText">  </text>
             <!-- OUTSIDE ring -->
@@ -70,13 +70,13 @@
       <div class="large-12 columns">
         <div class="row">
           <div class="button-controls">
-            <div class="large-4 medium-4 columns">
+            <div class="large-4 medium-4 columns text-center">
               <button onclick="console.log(this.value);startWorkCountDown()" type="button" value="start" id="start" class="button success button-start">Start</button> 
             </div>
-            <div class="large-4 medium-4 columns">
+            <div class="large-4 medium-4 columns text-center">
                 <button type="button" onclick="pauseCountDown()" class="button secondary button-pause">Pause</button>
             </div>
-            <div class="large-4 medium-4 columns">
+            <div class="large-4 medium-4 columns text-center">
               <button type="button" onclick="resetFunc()" class="button alert button-reset">Reset</button>
             </div>
           </div>
@@ -85,10 +85,24 @@
     </div>
 
 
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+        <!-- Rounded Button Group -->
+        <ul class="button-group round">
+          <li><a onclick="console.log(this.value);startWorkCountDown()" type="button" value="start" id="start" class="button-start">Start</a> </li>
+          <li><a type="button" onclick="pauseCountDown()" class="button-pause">Pause</a></li>
+          <li><a type="button" onclick="resetFunc()" class="button-reset">Reset</a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+
 <footer>
   <div class="row">
     <div class="large-12 columns">
-      <p>Built by <a href="http://www.twitter.com/kaitou_al" target="_blank">@kaitou_al</a> with FreeCodeCamp.</p>
+      <p class="text-center">Built by <a href="http://www.twitter.com/kaitou_al" target="_blank">@kaitou_al</a> with FreeCodeCamp.</p>
     </div>
   </div>
 </footer>

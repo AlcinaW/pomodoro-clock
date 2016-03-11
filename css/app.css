@@ -13,22 +13,19 @@ svg .filler {
 }
 svg #overlay {
     /* change to #c5add3 */
-    fill: #fff;
+    fill: #c5add3;
 }
 
 svg #svgText {
     text-anchor: middle;
     alignment-baseline: central; 
-    font-size: 4em;
+    font-size: 45px;
     fill: #fff;
 }
 
 /* basic styles */
 body {
     font-family: 'Comfortaa', cursive;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     background-color: #c5add3;
     color: #7f8c8d;
     font-size: 15px;
@@ -38,18 +35,14 @@ h1, h2, p {
     font-family: 'Comfortaa', cursive;
     color: #34495e;
 }
-
-footer {
-}
-
-.project-title {
-    padding-top: 5px;
-}
-
-#workTime, #breakTime, #workIncrease, #workDecrease, #breakIncrease, #breakDecrease {
+#workTime, #breakTime, .input-time {
     color: #6d0a54;
 }
-
+.input-time {
+    background: none;
+    border-radius: 10px;
+    border: .5px solid #6d0a54;
+}
 #workTime, #breakTime {
     font-size: 20px;
 }
@@ -77,3 +70,7 @@ a {
 .button-reset {
     background: rgb(66, 184, 221); 
 }
+
+
+/* Button group styles migrated from Foundation 5 */
+

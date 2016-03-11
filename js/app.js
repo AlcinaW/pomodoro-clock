@@ -18,7 +18,7 @@ document.getElementById("timerDisplay").innerHTML = workTime;
 //on startbutton press, calculate seconds, math.floor percentage
 var overlay = document.getElementById('overlay').height.baseVal;
 var overlayHeight;
-window.onload = overlay.value = 390;
+window.onload = overlay.value = 270;
 console.log(overlay.value);
 // count down, make height smaller, convert to percentage of the height 0f 400?
 // 400 = not started, 200 = 50%, 0 = 100%
@@ -58,7 +58,7 @@ function resetFunc() {
   clearInterval(myTime);
   remainingSeconds = workTime * 60;
   //SVG reset height
-  overlay.value = 390;
+  overlay.value = 370;
   //calls start work function
   startWorkCountDown();
 }
