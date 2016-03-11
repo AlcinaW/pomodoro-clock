@@ -89,10 +89,12 @@ a {
 }
 
 /* BUTTONS */ 
-button {
+.incre-button {
     font-family: 'Comfortaa', cursive;
     background-color: #c5add3;
     border: .5px solid #6d0a54;
+    padding: 15px;
+    font-size: 15px;
 }
 .button-start,
 .button-pause,
