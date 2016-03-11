@@ -22,7 +22,7 @@ window.onload = overlay.value = 390;
 console.log(overlay.value);
 // count down, make height smaller, convert to percentage of the height 0f 400?
 // 400 = not started, 200 = 50%, 0 = 100%
-var per = 0;
+var per;
 console.log(per);
 
 //controls START button
@@ -72,7 +72,7 @@ function displayCountDown(remainingTime) {
 	//percentage of time remaining to control SVG 
 	var per = (remainingTime / (workTime * 60));
 	console.log(per);
-	overlay.value = per * 400;
+	overlay.value = per * 390;
 
 	if (remainingTime % 60 >= 10) {
 		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
@@ -104,10 +104,15 @@ var callback = function() {
 	document.title = "Take a break~";
   	console.log('callback yoo');
   	//change text in SVG
-	document.getElementById('svgText').textContent = "Break time!";
-	//percentage of time remaining to control SVG 
+	document.getElementById('svgText').textContent = "Break time!"; 
 
   	remainingSeconds = breakTime * 60;
+
+	//percentage of time remaining to control SVG 
+	// var per = (remainingTime / (breakTime * 60));
+	// console.log(per);
+	// overlay.value = per * 400;
+
   	//yet another callback
   	timerFunc(callbackRest);
 };
