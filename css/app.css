@@ -56,19 +56,19 @@ a {
 .button-reset {
     border: none;
     padding: 0.5em 2em;
-    border-radius: 5px;
-    border-radius: 5px;
     font-size: 120%;
     color: white;
 }
 .button-start {
     background: #f3a451; 
+    border-radius: 10px 0 0 10px;
 }
 .button-pause {
     background: #7a7384;
 }
 .button-reset {
     background: rgb(66, 184, 221); 
+    border-radius: 0 10px 10px 0;
 }
 
 
