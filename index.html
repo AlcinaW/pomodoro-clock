@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>Greato-daze~ Pomodoro time!</title>
+
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
     <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
@@ -23,19 +25,19 @@
       <div class="large-12 columns">
         <div class="row">
           <div class="large-4 medium-4 medium-push-2 columns">
-            <p class="text-center"><strong>Work Time</strong></p>
+            <p class="text-center"><strong>Work</strong></p>
               <div class="work-input text-center">
-                <button type="button" onclick="buttonControl(this.id)" id="workDecrease" name="sessionButton" class="button radius">-</button>
+                <button type="button" onclick="buttonControl(this.id)" id="workDecrease" name="sessionButton" class="button radius input-time">-</button>
                   <span id="workTime"></span>
-                <button type="button" onclick="buttonControl(this.id)" id="workIncrease" name="sessionButton" class="button radius">+</button>
+                <button type="button" onclick="buttonControl(this.id)" id="workIncrease" name="sessionButton" class="button radius input-time">+</button>
               </div>
           </div>
           <div class="large-4 medium-4 medium-pull-2 columns">
-            <p class="text-center"><strong>Break Time</strong></p>
+            <p class="text-center"><strong>Break</strong></p>
             <div class="break-input text-center">
-              <button type="button" onclick="buttonControl(this.id)" id="breakDecrease" name="sessionButton" class="button radius">-</button>
+              <button type="button" onclick="buttonControl(this.id)" id="breakDecrease" name="sessionButton" class="button radius input-time">-</button>
                 <span id="breakTime"></span>
-              <button type="button" onclick="buttonControl(this.id)" id="breakIncrease" name="sessionButton" class="button radius">+</button>
+              <button type="button" onclick="buttonControl(this.id)" id="breakIncrease" name="sessionButton" class="button radius input-time">+</button>
             </div>
           </div>
         </div>
@@ -51,7 +53,7 @@
             <!-- circle is filled -->
             <circle x="0" cx="150" cy="150" r="140" class="filler" />
             <!-- OVERLAY -->
-            <rect x="5" y="10" width="300" height="" class="blocker" id="overlay" />
+            <rect x="5" y="15" width="280" height="" class="blocker" id="overlay" />
             <!-- text status -->
             <text x="50%" y="50%" class="svgText" id="svgText">  </text>
             <!-- OUTSIDE ring -->
@@ -59,8 +61,7 @@
           </svg>
 
           <h2 class="text-center"><div id="display"><span id="timerDisplay"></span> minutes</div></h2>
-          <!-- Display the text status
-          <p><span id="timerText"></span></p> -->
+
         </div>
       </div>
     </div>
@@ -69,30 +70,32 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="row">
-          <div class="button-controls">
-            <div class="large-4 medium-4 columns">
+          <div class="button-control">
+            <div class="large-2 medium-2 large-offset-3 medium-offset-3 columns text-center">
               <button onclick="console.log(this.value);startWorkCountDown()" type="button" value="start" id="start" class="button success button-start">Start</button> 
             </div>
-            <div class="large-4 medium-4 columns">
+            <div class="large-2 medium-2 columns text-center">
                 <button type="button" onclick="pauseCountDown()" class="button secondary button-pause">Pause</button>
             </div>
-            <div class="large-4 medium-4 columns">
-              <button type="button" onclick="resetFunc()" class="button alert button-reset">Reset</button>
+            <div class="large-2 medium-2 columns end text-center">
+              <button type="button" onclick="resetFunc()" class="button button-primary button-reset">Reset</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
 
 
 <footer>
   <div class="row">
     <div class="large-12 columns">
-      <p>Built by <a href="http://www.twitter.com/kaitou_al" target="_blank">@kaitou_al</a> with FreeCodeCamp.</p>
+      <p class="text-center">Built by <a href="http://www.twitter.com/kaitou_al" target="_blank">@kaitou_al</a> with FreeCodeCamp.</p>
     </div>
   </div>
 </footer>
 
+    <!-- JQuery for Foundation -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.js"></script>
     <script src="js/app.js"></script>
