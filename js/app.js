@@ -59,6 +59,8 @@ function pauseCountDown(){
 function resetFunc() {
   clearInterval(myTime);
   remainingSeconds = workTime * 60;
+  isWorkTime = true; //new
+  isBreakTime = false; //new
   //SVG reset height
   overlay.value = 370;
   //calls start work function
