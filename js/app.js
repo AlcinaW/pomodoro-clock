@@ -57,7 +57,7 @@ function resetFunc() {
   isBreakTime = false; 
 
   //SVG reset height
-  overlay.value = 370;
+  overlay.value = 270;
   //calls start work function
   startWorkCountDown();
 }
