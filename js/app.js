@@ -11,26 +11,24 @@ var remainingSeconds = workTime * 60;
 
 document.getElementById("timerDisplay").innerHTML = workTime;
 
-// SVG
-//control the height of the id="blocker" SVG with how much time
-//height reduces as counds down, height is currently 400
-//on windowload, set height to 400
-//on startbutton press, calculate seconds, math.floor percentage
+// SVG, control the height of the overlay with how much time
 var overlay = document.getElementById('overlay').height.baseVal;
 var overlayHeight;
 window.onload = overlay.value = 270;
 console.log(overlay.value);
-// count down, make height smaller, convert to percentage of the height 0f 400?
-// 400 = not started, 200 = 50%, 0 = 100%
+
 var per;
-console.log(per);
+console.log(per); //undefined on load
+
+var isPomodoroTime = false; //new
+var isBreakTime = false; //new
 
 //controls START button
 function startWorkCountDown(){
 	//lets you see in tab title what status of timer is
-	document.title = "Working!";
+	//document.title = "Working!";
 	//change text in SVG
-	document.getElementById('svgText').textContent = "Working!";
+	//document.getElementById('svgText').textContent = "Working!";
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
