@@ -9,7 +9,9 @@ console.log(breakTime);
 //calculates seconds
 var remainingSeconds = workTime * 60;
 
-document.getElementById("timerDisplay").innerHTML = workTime;
+
+window.onload = document.getElementById("timerDisplay").innerHTML = workTime + ":" + "00";
+window.onload = document.getElementById('svgText').textContent = "Pomodoro!"; 
 
 // SVG, control the height of the overlay with how much time
 var overlay = document.getElementById('overlay').height.baseVal;
@@ -20,7 +22,7 @@ console.log(overlay.value);
 var per;
 console.log(per); //undefined on load
 
-var isPomodoroTime = false; //new
+var isWorkTime = false; //new
 var isBreakTime = false; //new
 
 //controls START button
@@ -29,6 +31,8 @@ function startWorkCountDown(){
 	//document.title = "Working!";
 	//change text in SVG
 	//document.getElementById('svgText').textContent = "Working!";
+
+	isWorkTime = true; //new
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
@@ -101,6 +105,10 @@ function timerFunc(tomato) {
 
 //callback for breaktime!
 var callback = function() {
+
+  	isWorkTime = false; //new
+  	isBreakTime = true; //new
+
 	//lets you see in tab title what status of timer is
 	document.title = "Take a break~";
   	console.log('callback yoo');
