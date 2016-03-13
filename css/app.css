@@ -12,25 +12,21 @@ svg .filler {
     stroke-aligment: inner;
 }
 svg #overlay {
-    /* change to #c5add3 */
     fill: #c5add3;
 }
-
 svg #svgText {
     text-anchor: middle;
     alignment-baseline: central; 
     font-size: 45px;
     fill: #fff;
 }
-
-/* basic styles */
+/* BODY STYLES */
 body {
     font-family: 'Comfortaa', cursive;
     background-color: #c5add3;
     color: #7f8c8d;
     font-size: 15px;
 }
-
 h1, h2, p {
     font-family: 'Comfortaa', cursive;
     color: #34495e;
@@ -49,7 +45,6 @@ h1, h2, p {
 #workTime, #breakTime {
     font-size: 20px;
 }
-
 a {
     color: #6d0a54;
     text-decoration: none;
@@ -73,6 +68,3 @@ a {
 .button-pause {
     background: #7a7384;
 }
-
-/* Button group styles migrated from Foundation 5 */
-

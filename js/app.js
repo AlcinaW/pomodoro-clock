@@ -26,7 +26,6 @@ var isBreakTime = false;
 
 //controls START button
 function startWorkCountDown(){
-	// isWorkTime = true; //?
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
@@ -46,30 +45,31 @@ function pauseCountDown(){
 	console.log('paused');
 	//re-enable Start button when pressed
 	document.getElementById("start").disabled = false;
-
 }
 
 // controls reset 
 function resetFunc() {
   clearInterval(myTime);
+
   remainingSeconds = workTime * 60;
-  isWorkTime = true; //new
-  isBreakTime = false; //new
+
+  isWorkTime = true; //resets to workTime
+  isBreakTime = false; 
+
   //SVG reset height
   overlay.value = 370;
   //calls start work function
   startWorkCountDown();
 }
 
-// changes seconds number to look like time
 function displayCountDown(remainingTime) {
+	// changes seconds number to look like time
 	var minutes = Math.floor(remainingTime / 60); 
 	var seconds = remainingTime % 60; 
 	console.log(remainingTime);
 	console.log(minutes + ":" + seconds);
 	//percentage of time remaining to control SVG 
-	//set new variable that is workTime or breakTime?
-	// how to get the original time in seconds before counting down
+	//checks which is true, work or break status
 
 	if (isWorkTime == true) {
 		var per = (remainingTime / (workTime * 60));
@@ -90,7 +90,7 @@ function displayCountDown(remainingTime) {
 		console.log(per);
 		overlay.value = per * 270;
 	}
-
+	//display of the countdown
 	if (remainingTime % 60 >= 10) {
 		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
 	} else {
@@ -106,7 +106,6 @@ function timerFunc(tomato) {
 		if (remainingTime >= 0) {
 			// if greater than 0, keep doing down by one
 			remainingSeconds--;
-		
 			timerFunc(tomato);
 		} else {
 			clearInterval();
@@ -115,24 +114,17 @@ function timerFunc(tomato) {
 	}, 1000); //delay
 }
 
-//callback for breaktime!
+//callback for breakTime
 var callback = function() {
 
-  	isWorkTime = false; //new
-  	isBreakTime = true; //new
+  	isWorkTime = false; 
+  	isBreakTime = true; //sets to breakTime
 
 	//lets you see in tab title what status of timer is
 	document.title = "Take a break~";
   	console.log('callback yoo');
-  	//change text in SVG
-	//document.getElementById('svgText').textContent = "Break time!"; 
 
   	remainingSeconds = breakTime * 60;
-
-	//percentage of time remaining to control SVG 
-	// var per = (remainingTime / (breakTime * 60));
-	// console.log(per);
-	// overlay.value = per * 400;
 
   	//yet another callback
   	timerFunc(callbackRest);
@@ -140,8 +132,8 @@ var callback = function() {
 
 var callbackRest = function() {
 
-	isWorkTime = true; //new
-	isBreakTime = false; //new 
+	isWorkTime = true; //sets to workTime
+	isBreakTime = false; 
 
   	clearInterval(myTime);
 
@@ -150,13 +142,13 @@ var callbackRest = function() {
   	remainingSeconds = workTime * 60;
   	//controls Start button
   	document.getElementById("start").disabled = false;
-  	//go back to work time? THIS IS NEW
+  	//go back to work
   	return ( startWorkCountDown() );
 };
 
 // controls buttons to increase and decrease inputs 
 //updates numbers as you go
-//controls all buttons. When this.is is send, checks for matches, then if statement
+//this.id is sent, checks for matches, then runs if statement
 //To-do: addEventListener on JS side instead?
 function buttonControl(clicked_id){ 
 	if (clicked_id === "workIncrease") { 
