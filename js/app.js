@@ -75,7 +75,20 @@ function displayCountDown(remainingTime) {
 	//set new variable that is workTime or breakTime?
 	// how to get the original time in seconds before counting down
 	//let or const?
-	var per = (remainingTime / (workTime * 60));
+	if (isWorkTime == true) {
+		var per = (remainingTime / (workTime * 60));
+		//change text in SVG
+		document.getElementById('svgText').textContent = "Work time!"; 
+		//lets you see in tab title what status of timer is
+		document.title = "Work time!";
+		console.log('percent with workTime');
+	} else { 
+		var per = (remainingTime / (breakTime * 60));
+		//change text in SVG
+		document.getElementById('svgText').textContent = "Break time!"; 
+		console.log('percent with breakTime');
+	}
+
 	console.log(per);
 	overlay.value = per * 270;
 
@@ -113,7 +126,7 @@ var callback = function() {
 	document.title = "Take a break~";
   	console.log('callback yoo');
   	//change text in SVG
-	document.getElementById('svgText').textContent = "Break time!"; 
+	//document.getElementById('svgText').textContent = "Break time!"; 
 
   	remainingSeconds = breakTime * 60;
 
@@ -127,9 +140,14 @@ var callback = function() {
 };
 
 var callbackRest = function() {
+
+	isWorkTime = true; //new
+	isBreakTime = false; //new 
+
   	clearInterval(myTime);
+
   	console.log('callbackRest');
-  	document.getElementById('timerText').innerHTML = "Work time~";
+
   	remainingSeconds = workTime * 60;
   	//controls Start button
   	document.getElementById("start").disabled = false;
