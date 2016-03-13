@@ -43,6 +43,9 @@ h1, h2, p {
     border-radius: 10px;
     border: .5px solid #6d0a54;
 }
+.input-time:hover, .input-time:active, .input-time:focus {
+    background-color: rgba(255, 255, 255, .15);
+}
 #workTime, #breakTime {
     font-size: 20px;
 }
@@ -51,6 +54,10 @@ a {
     color: #6d0a54;
     text-decoration: none;
 }
+.button-control {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .button-start,
 .button-pause,
 .button-reset {
@@ -58,19 +65,14 @@ a {
     padding: 0.5em 2em;
     font-size: 120%;
     color: white;
+    border-radius: 10px;
 }
 .button-start {
     background: #f3a451; 
-    border-radius: 10px 0 0 10px;
 }
 .button-pause {
     background: #7a7384;
 }
-.button-reset {
-    background: rgb(66, 184, 221); 
-    border-radius: 0 10px 10px 0;
-}
-
 
 /* Button group styles migrated from Foundation 5 */
 
