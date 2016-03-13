@@ -9,30 +9,24 @@ console.log(breakTime);
 //calculates seconds
 var remainingSeconds = workTime * 60;
 
-
+//sets initial text on page
 window.onload = document.getElementById("timerDisplay").innerHTML = workTime + ":" + "00";
 window.onload = document.getElementById('svgText').textContent = "Pomodoro!"; 
 
 // SVG, control the height of the overlay with how much time
 var overlay = document.getElementById('overlay').height.baseVal;
-var overlayHeight;
 window.onload = overlay.value = 270;
 console.log(overlay.value);
-
 var per;
-console.log(per); //undefined on load
 
-var isWorkTime = true; //new
-var isBreakTime = false; //new
+//check status of timer for text display
+var isWorkTime; 
+window.onload = isWorkTime = true;
+var isBreakTime = false; 
 
 //controls START button
 function startWorkCountDown(){
-	//lets you see in tab title what status of timer is
-	//document.title = "Working!";
-	//change text in SVG
-	//document.getElementById('svgText').textContent = "Working!";
-
-	// isWorkTime = true; //new
+	// isWorkTime = true; //?
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
@@ -84,6 +78,8 @@ function displayCountDown(remainingTime) {
 		//lets you see in tab title what status of timer is
 		document.title = "Work time!";
 		console.log('percent with workTime');
+		console.log(per);
+		overlay.value = per * 270;
 	} else { 
 		var per = (remainingTime / (breakTime * 60));
 		//change text in SVG
@@ -91,10 +87,9 @@ function displayCountDown(remainingTime) {
 		//lets you see in tab title what status of timer is
 		document.title = "Break time!";
 		console.log('percent with breakTime');
+		console.log(per);
+		overlay.value = per * 270;
 	}
-
-	console.log(per);
-	overlay.value = per * 270;
 
 	if (remainingTime % 60 >= 10) {
 		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
