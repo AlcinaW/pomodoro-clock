@@ -70,6 +70,7 @@ function displayCountDown(remainingTime) {
 	console.log(remainingTime);
 	console.log(minutes + ":" + seconds);
 	//percentage of time remaining to control SVG 
+	//set new variable that is workTime or breakTime?
 	var per = (remainingTime / (workTime * 60));
 	console.log(per);
 	overlay.value = per * 390;
