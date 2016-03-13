@@ -75,7 +75,7 @@ function displayCountDown(remainingTime) {
 	//let or const?
 	var per = (remainingTime / (workTime * 60));
 	console.log(per);
-	overlay.value = per * 390;
+	overlay.value = per * 270;
 
 	if (remainingTime % 60 >= 10) {
 		document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
