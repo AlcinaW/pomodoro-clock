@@ -22,7 +22,7 @@ console.log(overlay.value);
 var per;
 console.log(per); //undefined on load
 
-var isWorkTime = false; //new
+var isWorkTime = true; //new
 var isBreakTime = false; //new
 
 //controls START button
@@ -32,7 +32,7 @@ function startWorkCountDown(){
 	//change text in SVG
 	//document.getElementById('svgText').textContent = "Working!";
 
-	isWorkTime = true; //new
+	// isWorkTime = true; //new
 	//disable start button after pressed
 	document.getElementById("start").disabled = true;
 
@@ -74,7 +74,7 @@ function displayCountDown(remainingTime) {
 	//percentage of time remaining to control SVG 
 	//set new variable that is workTime or breakTime?
 	// how to get the original time in seconds before counting down
-	//let or const?
+
 	if (isWorkTime == true) {
 		var per = (remainingTime / (workTime * 60));
 		//change text in SVG
