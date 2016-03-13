@@ -88,6 +88,8 @@ function displayCountDown(remainingTime) {
 		var per = (remainingTime / (breakTime * 60));
 		//change text in SVG
 		document.getElementById('svgText').textContent = "Break time!"; 
+		//lets you see in tab title what status of timer is
+		document.title = "Break time!";
 		console.log('percent with breakTime');
 	}
 
